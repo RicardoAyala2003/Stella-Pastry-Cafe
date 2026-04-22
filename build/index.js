@@ -116,7 +116,7 @@ function Footer() {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("is-visible");
-          }, index * 90);
+          }, index * 100);
           observer.unobserve(entry.target);
         }
       });
@@ -126,13 +126,36 @@ function Footer() {
     items.forEach(item => observer.observe(item));
     return () => observer.disconnect();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("footer", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("footer", {
     className: "st-footer",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "st-footer-street-shadow",
+      "aria-hidden": "true"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "st-footer-shell",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "st-footer-main",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "st-footer-postcard",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "st-footer-scene",
+          "aria-hidden": "true",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-table st-table-left"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-table st-table-right"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-chair st-chair-left-1"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-chair st-chair-left-2"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-chair st-chair-right-1"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-chair st-chair-right-2"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-planter st-planter-left"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "st-planter st-planter-right"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "st-footer-grid",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "st-footer-brand-col st-footer-reveal",
@@ -147,7 +170,7 @@ function Footer() {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
               className: "st-footer-tagline",
-              children: "Since 1942, in the heart of North Beach, Stella has remained the place for the one cake that cannot be found anywhere else."
+              children: "Since 1942, Stella Pastry & Cafe has remained the place for the one cake that cannot be found anywhere else."
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: "st-footer-meta",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -206,14 +229,14 @@ function Footer() {
                 children: item.label
               }, item.label))
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "st-footer-socials mt-6",
+              className: "st-footer-socials",
               children: socialLinks.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
                 href: item.href,
                 children: item.label
               }, item.label))
             })]
           })]
-        })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "st-footer-bottom",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -223,11 +246,11 @@ function Footer() {
             children: "Stella Pastry & Cafe \xB7 North Beach, San Francisco"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
             className: "st-footer-bottom-note",
-            children: "The House of Sacripantina"
+            children: "Since 1942 \xB7 The House of Sacripantina"
           })]
         })
       })]
-    })
+    })]
   });
 }
 
@@ -296,7 +319,7 @@ function Navbar() {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
-      className: "fixed left-0 right-0 z-[999] border-b border-[var(--st-border)] bg-[rgba(247,240,224,0.92)] shadow-[0_12px_36px_rgba(44,26,14,0.08)] backdrop-blur-xl transition-all duration-300",
+      className: "fixed left-0 right-0 z-[999] border-b border-[var(--st-border)] bg-[var(--st-cream)] shadow-[0_12px_36px_rgba(44,26,14,0.08)] transition-all duration-300",
       style: {
         top: "var(--wp-admin--admin-bar--height, 0px)"
       },
@@ -375,9 +398,11 @@ function Navbar() {
             })]
           })
         })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "navbar-wave"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "h-[74px] lg:h-[92px]",
+      className: "h-[78px] lg:h-[102px]",
       "aria-hidden": "true"
     })]
   });

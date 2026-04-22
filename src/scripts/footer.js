@@ -27,7 +27,7 @@ export default function Footer() {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add("is-visible")
-            }, index * 90)
+            }, index * 100)
             observer.unobserve(entry.target)
           }
         })
@@ -42,8 +42,21 @@ export default function Footer() {
 
   return (
     <footer className="st-footer">
+      <div className="st-footer-street-shadow" aria-hidden="true" />
+
       <div className="st-footer-shell">
-        <div className="st-footer-main">
+        <div className="st-footer-postcard">
+          <div className="st-footer-scene" aria-hidden="true">
+            <span className="st-table st-table-left" />
+            <span className="st-table st-table-right" />
+            <span className="st-chair st-chair-left-1" />
+            <span className="st-chair st-chair-left-2" />
+            <span className="st-chair st-chair-right-1" />
+            <span className="st-chair st-chair-right-2" />
+            <span className="st-planter st-planter-left" />
+            <span className="st-planter st-planter-right" />
+          </div>
+
           <div className="st-footer-grid">
             <div className="st-footer-brand-col st-footer-reveal">
               <a href="#top" className="st-footer-brand" aria-label="Stella Pastry & Cafe Home">
@@ -52,7 +65,7 @@ export default function Footer() {
               </a>
 
               <p className="st-footer-tagline">
-                Since 1942, in the heart of North Beach, Stella has remained the place for the one cake that cannot be found anywhere else.
+                Since 1942, Stella Pastry & Cafe has remained the place for the one cake that cannot be found anywhere else.
               </p>
 
               <div className="st-footer-meta">
@@ -67,7 +80,7 @@ export default function Footer() {
               <div className="st-footer-list">
                 <p>446 Columbus Ave, North Beach, San Francisco, CA 94133</p>
                 <p>Open Daily 7:30 AM – 8:00 PM</p>
-                <p>Fri & Sat until 11:00 PM</p>
+                <p>Fri &amp; Sat until 11:00 PM</p>
                 <p>(415) 986-2914</p>
               </div>
             </div>
@@ -91,7 +104,7 @@ export default function Footer() {
                 ))}
               </nav>
 
-              <div className="st-footer-socials mt-6">
+              <div className="st-footer-socials">
                 {socialLinks.map((item) => (
                   <a key={item.label} href={item.href}>
                     {item.label}
@@ -105,10 +118,10 @@ export default function Footer() {
         <div className="st-footer-bottom">
           <div className="st-footer-bottom-row">
             <p className="st-footer-bottom-copy">
-              Stella Pastry & Cafe · North Beach, San Francisco
+              Stella Pastry &amp; Cafe · North Beach, San Francisco
             </p>
             <p className="st-footer-bottom-note">
-              The House of Sacripantina
+              Since 1942 · The House of Sacripantina
             </p>
           </div>
         </div>

@@ -58,8 +58,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className="fixed left-0 right-0 z-[999] border-b border-[var(--st-border)] bg-[rgba(247,240,224,0.92)] shadow-[0_12px_36px_rgba(44,26,14,0.08)] backdrop-blur-xl transition-all duration-300"
+     <header
+  className="fixed left-0 right-0 z-[999] border-b border-[var(--st-border)] bg-[var(--st-cream)] shadow-[0_12px_36px_rgba(44,26,14,0.08)] transition-all duration-300"
         style={{ top: "var(--wp-admin--admin-bar--height, 0px)" }}
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
@@ -169,9 +169,11 @@ export default function Navbar() {
             </div>
           </nav>
         </div>
+
+        <div className="navbar-wave" />
       </header>
 
-      <div className="h-[74px] lg:h-[92px]" aria-hidden="true" />
+      <div className="h-[78px] lg:h-[102px]" aria-hidden="true" />
     </>
   )
 }
