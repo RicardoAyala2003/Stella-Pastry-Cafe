@@ -19,10 +19,7 @@ get_header(); ?>
     $img_tiramisu   = 'https://images.unsplash.com/photo-1542124948-dc391252a940?q=80&w=1200&auto=format&fit=crop';
     $img_cannoli    = 'https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=80&w=1200&auto=format&fit=crop';
 
-    $hero_video_a   = 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/A003_04171647_C247.mp4';
-    $hero_video_b   = 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/A003_04171642_C245.mp4';
-    $hero_video_c   = 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/A003_04171701_C254.mp4';
-    $hero_video_d   = 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/A003_04171649_C248.mp4';
+    $hero_video_main = 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/A003_04171703_C255.mp4';
 
     /* ── Products (copy exact from brief) ── */
     $products = [
@@ -82,33 +79,19 @@ get_header(); ?>
 ═══════════════════════════════════════════════ -->
 <section id="top" class="st-hero">
 
-<div class="st-hero-media" aria-hidden="true">
-
-  <div class="st-hero-slide is-active is-video">
-    <video class="st-hero-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo esc_url($img_hero); ?>">
-      <source src="<?php echo esc_url($hero_video_a); ?>" type="video/mp4">
-    </video>
+  <div class="st-hero-media" aria-hidden="true">
+    <div class="st-hero-slide is-active is-video">
+      <video
+        class="st-hero-video"
+        autoplay
+        muted
+        playsinline
+        preload="metadata"
+        poster="<?php echo esc_url($img_hero); ?>">
+        <source src="<?php echo esc_url($hero_video_main); ?>" type="video/mp4">
+      </video>
+    </div>
   </div>
-
-  <div class="st-hero-slide is-video">
-    <video class="st-hero-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo esc_url($img_tiramisu); ?>">
-      <source src="<?php echo esc_url($hero_video_b); ?>" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="st-hero-slide is-video">
-    <video class="st-hero-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo esc_url($img_cases); ?>">
-      <source src="<?php echo esc_url($hero_video_c); ?>" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="st-hero-slide is-video">
-    <video class="st-hero-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo esc_url($img_storefront); ?>">
-      <source src="<?php echo esc_url($hero_video_d); ?>" type="video/mp4">
-    </video>
-  </div>
-
-</div>
 
   <div class="st-hero-scrim"></div>
   <div class="st-grain" aria-hidden="true"></div>
@@ -149,7 +132,7 @@ get_header(); ?>
 
     <div class="st-hero-ctas st-fade-up" style="--d:.50s">
       <a href="#order-delivery" class="st-btn-gold">
-      <span>Order Now</span>
+        <span>Order Now</span>
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
           <path d="M2.5 7.5h10M8 3l4.5 4.5L8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -198,19 +181,16 @@ get_header(); ?>
   </div>
 </nav>
 
-
   <!-- ═══════════════════════════════════════════════
        SECTION 3 · PRODUCT CAROUSEL
        'From Our Cases' — Flip cards
   ═══════════════════════════════════════════════ -->
   <section id="from-our-cases" class="st-products">
 
-    <!-- Decorative BG word -->
     <div class="st-bg-word" aria-hidden="true">CASES</div>
 
     <div class="st-products-inner">
 
-      <!-- Header (exact from brief) -->
       <div class="st-products-header st-reveal-up">
         <div>
           <p class="st-label">From Our Cases</p>
@@ -221,15 +201,12 @@ get_header(); ?>
         </p>
       </div>
 
-      <!-- Flip cards grid -->
       <div class="st-flip-grid">
         <?php foreach($products as $i => $p): ?>
           <div class="st-flip-wrap st-reveal-stagger" style="--si:<?php echo $i; ?>">
             <div class="st-flip-card" tabindex="0" role="button" aria-label="See details for <?php echo esc_attr($p['title']); ?>">
 
-              <!-- FRONT -->
               <div class="st-flip-front">
-                <!-- Image -->
                 <div class="st-flip-img-wrap">
                   <img src="<?php echo esc_url($p['image']); ?>"
                        alt="<?php echo esc_attr($p['title']); ?>"
@@ -240,7 +217,7 @@ get_header(); ?>
                   <?php endif; ?>
                   <span class="st-flip-num"><?php echo $p['num']; ?></span>
                 </div>
-                <!-- Body -->
+
                 <div class="st-flip-body">
                   <h3 class="st-flip-title"><?php echo esc_html($p['title']); ?></h3>
                   <p class="st-flip-copy"><?php echo esc_html($p['front_copy']); ?></p>
@@ -252,11 +229,10 @@ get_header(); ?>
                     <span class="st-flip-hint">Hover to reveal ↗</span>
                   </div>
                 </div>
-                <!-- Accent bar -->
-                <div class="st-flip-accent" style="background:<?php echo $p['accent']; ?>"></div>
-              </div><!-- /front -->
 
-              <!-- BACK -->
+                <div class="st-flip-accent" style="background:<?php echo $p['accent']; ?>"></div>
+              </div>
+
               <div class="st-flip-back" style="--accent:<?php echo $p['accent']; ?>">
                 <div class="st-flip-back-inner">
                   <span class="st-flip-back-num"><?php echo $p['num']; ?></span>
@@ -269,43 +245,36 @@ get_header(); ?>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a>
                 </div>
-              </div><!-- /back -->
+              </div>
 
-            </div><!-- /flip-card -->
-          </div><!-- /flip-wrap -->
+            </div>
+          </div>
         <?php endforeach; ?>
-      </div><!-- /flip-grid -->
+      </div>
 
     </div>
   </section>
 
-
   <!-- ═══════════════════════════════════════════════
        SECTION 4 · SACRIPANTINA FEATURE
-       Left visual + layer breakdown · Right copy
   ═══════════════════════════════════════════════ -->
   <section id="the-sacripantina" class="st-feature">
 
     <div class="st-feature-inner">
 
-      <!-- Visual / left -->
       <div class="st-feat-visual st-reveal-left">
 
-        <!-- Main image -->
         <div class="st-feat-img-main">
           <img src="<?php echo esc_url($img_hero); ?>" alt="The Sacripantina — whole cake" loading="lazy">
-          <!-- Corner marks -->
           <div class="st-corner st-c-tl"></div>
           <div class="st-corner st-c-br"></div>
         </div>
 
-        <!-- Floating slice card -->
         <div class="st-feat-slice">
           <img src="<?php echo esc_url($img_slice); ?>" alt="Sacripantina cross-section slice" loading="lazy">
           <span>Cross-section · Zabaione layers</span>
         </div>
 
-        <!-- Layer breakdown -->
         <div class="st-layers st-reveal-up">
           <div class="st-layers-hdr">
             <div class="st-layers-rule"></div>
@@ -328,9 +297,8 @@ get_header(); ?>
           <?php endforeach; ?>
         </div>
 
-      </div><!-- /feat-visual -->
+      </div>
 
-      <!-- Copy / right (exact from brief) -->
       <div class="st-feat-copy st-reveal-right">
         <p class="st-label">Our Signature</p>
         <h2 class="st-feat-h">The<br><em>Sacripantina.</em></h2>
@@ -339,7 +307,6 @@ get_header(); ?>
           There is no other cake like this. Vanilla sponge soaked in rum, layered with zabaione — egg yolks, sweet butter, Marsala, sherry — finished with a dusting of fine crumbs. Light as a whisper. It cannot be explained. It can only be tasted.
         </p>
 
-        <!-- Prices (exact from brief) -->
         <div class="st-feat-prices">
           <?php foreach([['Slice','$8.75'],['6" Cake','$45.00'],['8" Cake','$57.90']] as [$pl,$pv]): ?>
             <div class="st-feat-price-blk">
@@ -349,24 +316,21 @@ get_header(); ?>
           <?php endforeach; ?>
         </div>
 
-<a href="#order-delivery" class="st-btn-gold">
-  <span>Order the Sacripantina</span>
-  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8 3l4.5 4.5L8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</a>
+        <a href="#order-delivery" class="st-btn-gold">
+          <span>Order the Sacripantina</span>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8 3l4.5 4.5L8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
 
     </div>
   </section>
 
-
   <!-- ═══════════════════════════════════════════════
        SECTION 5 · ORDER + CATERING
-       Two-column split — exact copy from brief
   ═══════════════════════════════════════════════ -->
   <section class="st-oc">
     <div class="st-oc-inner">
 
-      <!-- Order card (light) -->
       <article id="order-delivery" class="st-oc-card st-oc-light st-reveal-left">
         <span class="st-oc-num-bg">01</span>
         <p class="st-label">Available Now</p>
@@ -385,7 +349,6 @@ get_header(); ?>
         </a>
       </article>
 
-      <!-- Catering card (dark) -->
       <article id="catering" class="st-oc-card st-oc-dark st-reveal-right">
         <span class="st-oc-num-bg">02</span>
         <p class="st-label st-label-gold">Weddings · Celebrations · Events</p>
@@ -407,9 +370,8 @@ get_header(); ?>
     </div>
   </section>
 
-
   <!-- ═══════════════════════════════════════════════
-       SECTION 6 · REVIEWS — Motion carousel
+       SECTION 6 · REVIEWS
   ═══════════════════════════════════════════════ -->
   <section class="st-reviews">
     <div class="st-reviews-inner">
@@ -419,7 +381,6 @@ get_header(); ?>
         <h2 class="st-section-h-sm"><em>Voices of North Beach</em></h2>
       </div>
 
-      <!-- Carousel viewport -->
       <div class="st-car-viewport" id="st-car-viewport">
         <div class="st-car-track" id="st-car-track">
           <?php foreach($reviews as $ri => $r): ?>
@@ -436,7 +397,6 @@ get_header(); ?>
         </div>
       </div>
 
-      <!-- Controls -->
       <div class="st-car-controls">
         <button class="st-car-btn" id="st-car-prev" aria-label="Previous">←</button>
         <div class="st-car-dots" id="st-car-dots" role="tablist">
@@ -451,7 +411,6 @@ get_header(); ?>
 
     </div>
   </section>
-
 
   <!-- ═══════════════════════════════════════════════
        SECTION 7 · VISIT US
@@ -490,9 +449,8 @@ get_header(); ?>
     </div>
   </section>
 
-
   <!-- ═══════════════════════════════════════════════
-       SECTION 8 · BRAND QUOTE (exact from brief)
+       SECTION 8 · BRAND QUOTE
   ═══════════════════════════════════════════════ -->
   <section id="brand-quote" class="st-quote">
     <div class="st-quote-inner st-reveal-up">
@@ -509,40 +467,25 @@ get_header(); ?>
     </div>
   </section>
 
-</main><!-- /st-home -->
+</main>
 
-
-<!-- ════════════════════════════════════
-     STYLES
-════════════════════════════════════ -->
 <style>
-/* ─────────────────────────────────────────────
-   Google Fonts
-───────────────────────────────────────────── */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;700&display=swap");
 
-/* ─────────────────────────────────────────────
-   Design Tokens — Stella official palette
-   #ebe6e0 cream · #a4ccd4 sky · #3a5e90 navy
-   #7a1f2e burgundy · #e7bd7b gold
-───────────────────────────────────────────── */
 :root{
-  /* Core brand colours — official Stella hex */
-  --espresso: #1e1410;      /* darkest background — richer than before */
-  --espresso-mid: #2b1e1a;  /* secondary dark surface */
-  --cream:    #ebe6e0;      /* official Stella cream */
-  --burgundy: #7a1f2e;      /* official Stella burgundy */
-  --gold:     #e7bd7b;      /* official Stella gold */
-  --gold-lt:  #f0d4a8;      /* lighter tint of gold for text on dark */
-  --navy:     #3a5e90;      /* official Stella navy */
-  --sky:      #a4ccd4;      /* official Stella sky */
+  --espresso: #1e1410;
+  --espresso-mid: #2b1e1a;
+  --cream:    #ebe6e0;
+  --burgundy: #7a1f2e;
+  --gold:     #e7bd7b;
+  --gold-lt:  #f0d4a8;
+  --navy:     #3a5e90;
+  --sky:      #a4ccd4;
 
-  /* Derived surfaces — all built from the palette above */
-  --surface-light: #ebe6e0; /* same as cream — product section bg */
-  --surface-page:  #e8e2da; /* slightly deeper cream — page bg & OC section */
-  --surface-quote: #ddd7ce; /* darker cream for quote section — still on-palette */
+  --surface-light: #ebe6e0;
+  --surface-page:  #e8e2da;
+  --surface-quote: #ddd7ce;
 
-  /* Text */
   --ink:   #1a100e;
   --text:  #3d312c;
   --soft:  rgba(61,49,44,.72);
@@ -555,9 +498,6 @@ get_header(); ?>
   --ease-out: cubic-bezier(.16,1,.3,1);
 }
 
-/* ─────────────────────────────────────────────
-   Base
-───────────────────────────────────────────── */
 .st-home{
   font-family: var(--fb);
   background: var(--surface-page);
@@ -569,9 +509,6 @@ get_header(); ?>
 .st-home img{ display:block; max-width:100%; }
 .st-home em{ font-style:italic; }
 
-/* ─────────────────────────────────────────────
-   Reusables
-───────────────────────────────────────────── */
 .st-label{
   display:inline-flex; align-items:center; gap:10px;
   font-family:var(--fb); font-size:9.5px; font-weight:700;
@@ -601,7 +538,6 @@ get_header(); ?>
 }
 .st-section-h-sm em{ color:var(--burgundy); }
 
-/* Buttons */
 .st-btn-gold,
 .st-btn-ghost,
 .st-btn-ghost-warm,
@@ -659,8 +595,7 @@ get_header(); ?>
   display:inline-flex; align-items:center; gap:8px;
   padding:12px 22px;
   border:1.5px solid rgba(245,239,232,.56);
-    color:#ffffff !important;
-
+  color:#ffffff !important;
   background:rgba(255,255,255,.12);
   font-family:var(--fb); font-size:10.5px; font-weight:700;
   text-transform:uppercase; letter-spacing:.18em;
@@ -695,9 +630,6 @@ get_header(); ?>
   box-shadow:0 10px 24px rgba(122,31,46,.22);
 }
 
-/* ─────────────────────────────────────────────
-   HERO
-───────────────────────────────────────────── */
 .st-hero{
   position:relative;
   min-height:100vh;
@@ -707,41 +639,29 @@ get_header(); ?>
   background:var(--espresso);
   overflow:hidden;
 }
-
 .st-hero-media{
   position:absolute;
   inset:0;
   z-index:0;
 }
-
 .st-hero-slide{
   position:absolute;
   inset:0;
-  opacity:0;
-  visibility:hidden;
-  transition:opacity 1.2s ease, visibility 1.2s ease, transform 8s ease;
-  transform:scale(1.04);
-}
-.st-hero-slide.is-active{
   opacity:1;
   visibility:visible;
+  transform:scale(1.04);
 }
 .st-hero-slide.is-image{
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
 }
-.st-hero-slide.is-active.is-image{
-  transform:scale(1.1);
-}
-
 .st-hero-video{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
-
 .st-hero-scrim{
   position:absolute;
   inset:0;
@@ -764,7 +684,6 @@ get_header(); ?>
       transparent 70%
     );
 }
-
 .st-grain{
   position:absolute;
   inset:0;
@@ -775,7 +694,6 @@ get_header(); ?>
   opacity:.025;
   mix-blend-mode:overlay;
 }
-
 .st-year-float{
   position:absolute;
   right:2.5rem;
@@ -807,7 +725,6 @@ get_header(); ?>
   color:rgba(231,189,123,.58)!important;
   margin-top:8px;
 }
-
 .st-hero-content{
   position:relative;
   z-index:5;
@@ -822,7 +739,6 @@ get_header(); ?>
     max-width:900px;
   }
 }
-
 .st-eyebrow{
   display:inline-flex;
   align-items:center;
@@ -842,7 +758,6 @@ get_header(); ?>
   background:var(--sky);
   opacity:.85;
 }
-
 .st-h1{
   font-family:var(--fd);
   font-size:clamp(2.9rem,7.2vw,5.8rem);
@@ -863,7 +778,6 @@ get_header(); ?>
   font-style:italic;
   color:#fff;
 }
-
 .st-hero-sub{
   font-size:clamp(1.05rem,2vw,1.25rem);
   font-weight:300;
@@ -879,19 +793,16 @@ get_header(); ?>
   max-width:620px;
   margin-bottom:.8rem;
 }
-
 .st-hero-ctas{
   display:flex;
   flex-wrap:wrap;
   gap:14px;
   margin-top:2.2rem;
 }
-
 .st-br-md{ display:none; }
 @media(min-width:640px){
   .st-br-md{ display:block; }
 }
-
 .st-scroll-cue{
   position:absolute;
   bottom:2rem;
@@ -921,7 +832,6 @@ get_header(); ?>
   letter-spacing:.3em;
   color:rgba(235,230,224,.42);
 }
-
 .st-fade-up{
   opacity:0;
   transform:translateY(28px);
@@ -931,7 +841,6 @@ get_header(); ?>
 @keyframes fadeUp{
   to{ opacity:1; transform:none; }
 }
-
 @media(max-width:1023px){
   .st-hero{ min-height:92vh; }
   .st-hero-content{ padding:7.5rem 1.4rem 5rem; }
@@ -952,19 +861,13 @@ get_header(); ?>
   .st-scroll-cue span{ font-size:7.5px; }
 }
 
-/* ─────────────────────────────────────────────
-   QUICK ACTIONS
-   Dark espresso base — gold & sky accents.
-   No gradients. Consistent with hero bottom edge.
-───────────────────────────────────────────── */
 .st-qa{
-  background: var(--espresso-mid);     /* #2b1e1a — espresso, slightly lighter than hero */
+  background: var(--espresso-mid);
   border-top:  1px solid rgba(231,189,123,.18);
   border-bottom: 1px solid rgba(164,204,212,.14);
   position: relative;
   z-index: 10;
 }
-/* Subtle top glow to blend into hero */
 .st-qa::before{
   content: '';
   position: absolute;
@@ -977,7 +880,6 @@ get_header(); ?>
   );
   pointer-events: none;
 }
-
 .st-qa-grid{
   max-width: 1400px;
   margin: 0 auto;
@@ -987,7 +889,6 @@ get_header(); ?>
 @media(min-width:900px){
   .st-qa-grid{ grid-template-columns: repeat(4,1fr); }
 }
-
 .st-qa-tile{
   position: relative;
   display: flex;
@@ -1002,13 +903,10 @@ get_header(); ?>
   overflow: hidden;
 }
 .st-qa-tile:last-child{ border-right: none; }
-
-/* Hover: very subtle cream wash — no colour shift */
 .st-qa-tile:hover{
   background: rgba(235,230,224,.05);
   transform: translateY(-2px);
 }
-
 .st-qa-n{
   position: absolute;
   top: 12px;
@@ -1019,9 +917,7 @@ get_header(); ?>
   letter-spacing: .24em;
   color: rgba(231,189,123,.55);
 }
-
 .st-qa-body{ flex: 1; min-width: 0; }
-
 .st-qa-title{
   display: block;
   font-family: var(--fd);
@@ -1031,7 +927,6 @@ get_header(); ?>
   font-weight: 600;
   color: var(--cream);
 }
-
 .st-qa-copy{
   display: block;
   margin-top: 6px;
@@ -1040,7 +935,6 @@ get_header(); ?>
   line-height: 1.5;
   color: rgba(235,230,224,.58);
 }
-
 .st-qa-arrow{
   flex-shrink: 0;
   display: inline-flex;
@@ -1060,8 +954,6 @@ get_header(); ?>
   border-color: rgba(231,189,123,.65);
   background: rgba(231,189,123,.08);
 }
-
-/* Bottom accent line: gold only — no rainbow */
 .st-qa-bar{
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -1072,8 +964,6 @@ get_header(); ?>
   transition: transform .35s ease;
 }
 .st-qa-tile:hover .st-qa-bar{ transform: scaleX(1); }
-
-/* Vertical dividers on mobile grid */
 @media(max-width:899px){
   .st-qa-tile:nth-child(even){ border-right: none; }
   .st-qa-tile:nth-child(1),
@@ -1086,10 +976,6 @@ get_header(); ?>
   .st-qa-arrow{ width:28px; height:28px; font-size:13px; }
 }
 
-/* ─────────────────────────────────────────────
-   PRODUCTS — flip cards
-   bg: --surface-light (#ebe6e0) — cream palette
-───────────────────────────────────────────── */
 .st-products{
   padding:6.5rem 2rem;
   background:var(--surface-light);
@@ -1106,7 +992,6 @@ get_header(); ?>
   letter-spacing:-.06em; line-height:1; display:none;
 }
 @media(min-width:1200px){ .st-bg-word{ display:block; } }
-
 .st-products-inner{ max-width:1400px; margin:0 auto; position:relative; }
 .st-products-header{
   display:flex; flex-direction:column; gap:1rem;
@@ -1121,7 +1006,6 @@ get_header(); ?>
 }
 @media(min-width:768px){ .st-products-aside{ text-align:right; } }
 
-/* FLIP GRID */
 .st-flip-grid{
   display:grid; gap:1.5rem;
   grid-template-columns:1fr;
@@ -1149,7 +1033,6 @@ get_header(); ?>
   overflow:hidden;
 }
 
-/* ── FRONT ── */
 .st-flip-front{
   background:#fff;
   border:1px solid var(--bd);
@@ -1198,7 +1081,6 @@ get_header(); ?>
 .st-flip-accent{ position:absolute; left:0; top:0; bottom:0; width:3px; opacity:0; transition:opacity .4s; }
 .st-flip-card:hover .st-flip-accent{ opacity:1; }
 
-/* ── BACK ── */
 .st-flip-back{
   background:var(--espresso-mid);
   transform:rotateY(180deg);
@@ -1258,10 +1140,6 @@ get_header(); ?>
   box-shadow:0 10px 24px rgba(122,31,46,.22);
 }
 
-/* ─────────────────────────────────────────────
-   SACRIPANTINA FEATURE
-   bg: --espresso — dark anchor section
-───────────────────────────────────────────── */
 .st-feature{
   padding:7rem 2rem;
   background:var(--espresso);
@@ -1315,7 +1193,6 @@ get_header(); ?>
   background:rgba(235,230,224,.08);
   border:1px solid rgba(231,189,123,.28);
   padding:1.2rem 1.4rem;
-  
 }
 .st-layers-hdr{
   display:flex; align-items:center; gap:10px;
@@ -1375,10 +1252,6 @@ get_header(); ?>
   font-style:italic; color:var(--gold);
 }
 
-/* ─────────────────────────────────────────────
-   ORDER + CATERING
-   Light card: #ebe6e0 cream · Dark card: espresso
-───────────────────────────────────────────── */
 .st-oc{
   padding:6rem 2rem;
   background:var(--surface-page);
@@ -1400,7 +1273,6 @@ get_header(); ?>
   background:var(--espresso-mid);
   border-color:rgba(231,189,123,.10);
 }
-
 .st-oc-num-bg{
   position:absolute; top:1.5rem; right:2rem;
   font-family:var(--fd); font-size:5rem; font-style:italic; font-weight:700;
@@ -1439,10 +1311,6 @@ get_header(); ?>
 .st-oc-light .st-oc-list li{ background:rgba(44,26,14,.03); color:var(--text); }
 .st-oc-dark  .st-oc-list li{ background:rgba(235,230,224,.03); color:rgba(235,230,224,.56); }
 
-/* ─────────────────────────────────────────────
-   REVIEWS
-   bg: --surface-light (cream) with white cards
-───────────────────────────────────────────── */
 .st-reviews{
   padding:6rem 2rem;
   background:var(--surface-light);
@@ -1516,11 +1384,6 @@ get_header(); ?>
 }
 .st-car-dot.is-on{ background:var(--burgundy); border-color:var(--burgundy); transform:scale(1.3); }
 
-/* ─────────────────────────────────────────────
-   VISIT US
-   bg: --surface-page — warm off-white between
-       the cream sections
-───────────────────────────────────────────── */
 .st-visit{
   padding:6rem 2rem;
   background:var(--surface-page);
@@ -1558,11 +1421,6 @@ get_header(); ?>
 }
 .st-visit-img-a:hover img, .st-visit-img-b:hover img{ transform:scale(1.04); }
 
-/* ─────────────────────────────────────────────
-   BRAND QUOTE
-   bg: --surface-quote (#ddd7ce) — darkest cream,
-   on-palette, creates visual weight at page end
-───────────────────────────────────────────── */
 .st-quote{
   padding:7rem 2rem;
   background:var(--surface-quote);
@@ -1601,9 +1459,6 @@ get_header(); ?>
   text-transform:uppercase; letter-spacing:.3em; color:var(--soft);
 }
 
-/* ─────────────────────────────────────────────
-   SCROLL REVEALS
-───────────────────────────────────────────── */
 .st-reveal-up,
 .st-reveal-left,
 .st-reveal-right,
@@ -1620,9 +1475,6 @@ get_header(); ?>
   opacity:1 !important; transform:translate3d(0,0,0) !important;
 }
 
-/* ─────────────────────────────────────────────
-   REDUCED MOTION
-───────────────────────────────────────────── */
 @media(prefers-reduced-motion:reduce){
   .st-fade-up, .st-reveal-up, .st-reveal-left, .st-reveal-right, .st-reveal-stagger{
     opacity:1 !important; transform:none !important;
@@ -1634,16 +1486,9 @@ get_header(); ?>
 }
 </style>
 
-
-<!-- ════════════════════════════════════
-     SCRIPTS
-════════════════════════════════════ -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ══════════════════════════════════
-     1. SCROLL REVEALS
-  ══════════════════════════════════ */
   const revEls = document.querySelectorAll(
     '.st-reveal-up, .st-reveal-left, .st-reveal-right, .st-reveal-stagger'
   );
@@ -1662,9 +1507,6 @@ document.addEventListener('DOMContentLoaded', function () {
     revEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ══════════════════════════════════
-     2. FLIP CARDS — keyboard support
-  ══════════════════════════════════ */
   document.querySelectorAll('.st-flip-card').forEach(card => {
     card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -1679,9 +1521,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ══════════════════════════════════
-     3. REVIEWS CAROUSEL
-  ══════════════════════════════════ */
   (function(){
     const viewport = document.getElementById('st-car-viewport');
     const track    = document.getElementById('st-car-track');
@@ -1762,43 +1601,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', () => goTo(cur, false));
   })();
 
-  /* ══════════════════════════════════
-     4. HERO MEDIA ROTATOR
-  ══════════════════════════════════ */
-  (function(){
-    const slides = Array.from(document.querySelectorAll('.st-hero-slide'));
-    if (!slides.length) return;
-
-    let current = 0;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const delay = prefersReduced ? 18000 : 12000;
-
-    const setActive = index => {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('is-active', i === index);
-        const video = slide.querySelector('video');
-        if (video) {
-          if (i === index) {
-            video.currentTime = 0;
-            const playPromise = video.play();
-            if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
-          } else {
-            video.pause();
-          }
-        }
-      });
-    };
-
-    setActive(current);
-    setInterval(() => {
-      current = (current + 1) % slides.length;
-      setActive(current);
-    }, delay);
-  })();
-
-  /* ══════════════════════════════════
-     5. SMOOTH SCROLL
-  ══════════════════════════════════ */
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -1810,7 +1612,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo({ top: target.getBoundingClientRect().top + pageYOffset - offset, behavior:'smooth' });
   });
 
-}); /* end DOMContentLoaded */
+});
 </script>
 
 <?php get_footer(); ?>
