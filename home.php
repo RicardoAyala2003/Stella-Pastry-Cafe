@@ -19,7 +19,7 @@ get_header(); ?>
     $img_tiramisu   = 'https://images.unsplash.com/photo-1542124948-dc391252a940?q=80&w=1200&auto=format&fit=crop';
     $img_cannoli    = 'https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=80&w=1200&auto=format&fit=crop';
 
-    $hero_video_main = 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/A003_04171703_C255.mp4';
+    $hero_video_main = '/wp-content/uploads/2026/04/VIDEO-EDITADO.mp4';
 
     /* ── Products (copy exact from brief) ── */
     $products = [
