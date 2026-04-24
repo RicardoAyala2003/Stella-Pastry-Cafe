@@ -80,17 +80,16 @@ get_header(); ?>
 <section id="top" class="st-hero">
 
   <div class="st-hero-media" aria-hidden="true">
-    <div class="st-hero-slide is-active is-video">
-      <video
-        class="st-hero-video"
-        autoplay
-        muted
-        playsinline
-        preload="metadata"
-        poster="<?php echo esc_url($img_hero); ?>">
-        <source src="<?php echo esc_url($hero_video_main); ?>" type="video/mp4">
-      </video>
-    </div>
+   <div class="st-hero-slide is-active is-video">
+  <video
+    class="st-hero-video"
+    autoplay
+    muted
+    playsinline
+    preload="auto">
+    <source src="<?php echo esc_url($hero_video_main); ?>" type="video/mp4">
+  </video>
+</div>
   </div>
 
   <div class="st-hero-scrim"></div>
