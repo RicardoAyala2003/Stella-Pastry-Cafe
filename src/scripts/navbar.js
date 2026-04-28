@@ -8,7 +8,7 @@ const navLinks = [
 ]
 
 const logoUrl =
-  "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png"
+  "/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)

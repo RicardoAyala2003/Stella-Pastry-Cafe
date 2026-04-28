@@ -16,7 +16,7 @@ const socialLinks = [
 ]
 
 const footerLogo =
-  "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Sello-scaled.png"
+  "/wp-content/uploads/2026/04/Stella_Sello-scaled.png"
 
 const supportAccent =
   "/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png"

@@ -107,7 +107,7 @@ const socialLinks = [{
   label: "Yelp",
   href: "#"
 }];
-const footerLogo = "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Sello-scaled.png";
+const footerLogo = "/wp-content/uploads/2026/04/Stella_Sello-scaled.png";
 const supportAccent = "/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png";
 function Footer() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -298,7 +298,7 @@ const navLinks = [{
   label: "Our Story",
   href: "#brand-quote"
 }];
-const logoUrl = "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png";
+const logoUrl = "/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png";
 function Navbar() {
   const [menuOpen, setMenuOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [scrolled, setScrolled] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
