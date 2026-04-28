@@ -8,19 +8,19 @@ get_header(); ?>
 <main class="st-home" id="st-main">
 <?php
   $img = [
-    'hero'       => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/DSC05840-scaled.jpg',
-    'slice'      => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/DSC05450-scaled.jpg',
-    'espresso'   => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/DSC05875-scaled.jpg',
-    'storefront' => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/01.jpg',
-    'cases'      => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/IMG_9372-scaled.jpg',
-    'cannoli'    => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/DSC05351-scaled.jpg',
-    'other'      => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/DSC06174-scaled.jpg',
-    'pattern'    => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella-Estampados-02.png',
-    'pattern_reviews' => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella-Estampados-01.png',
-    'stamp_daily' => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-05.png',
-    'stamp_secret' => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-01.png',
-    'stamp_sacripantina' => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png',
-    'stamp_round' => 'http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-04.png',
+    'hero'       => '/wp-content/uploads/2026/04/DSC05840-scaled.jpg',
+    'slice'      => '/wp-content/uploads/2026/04/DSC05450-scaled.jpg',
+    'espresso'   => '/wp-content/uploads/2026/04/DSC05875-scaled.jpg',
+    'storefront' => '/wp-content/uploads/2026/04/01.jpg',
+    'cases'      => '/wp-content/uploads/2026/04/IMG_9372-scaled.jpg',
+    'cannoli'    => '/wp-content/uploads/2026/04/DSC05351-scaled.jpg',
+    'other'      => '/wp-content/uploads/2026/04/DSC06174-scaled.jpg',
+    'pattern'    => '/wp-content/uploads/2026/04/Stella-Estampados-02.png',
+    'pattern_reviews' => '/wp-content/uploads/2026/04/Stella-Estampados-01.png',
+    'stamp_daily' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-05.png',
+    'stamp_secret' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-01.png',
+    'stamp_sacripantina' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png',
+    'stamp_round' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-04.png',
   ];
 
   $products = [
