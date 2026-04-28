@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Home Template v2
- * Stella Pastry & Cafe — Homepage
+ * Stella Pastry & Cafe  Homepage
  */
 get_header(); ?>
 
@@ -25,9 +25,9 @@ get_header(); ?>
 
   $products = [
     ['title'=>'Sacripantina','badge'=>'Only Here','badge_on'=>true,
-     'front_copy'=>'Vanilla sponge, zabaione, rum. The cake that only exists here — made the same way since 1942.',
+     'front_copy'=>'Vanilla sponge, zabaione, rum. The cake that only exists here  made the same way since 1942.',
      'back_title'=>'The One & Only',
-     'back_copy'=>'A vanilla sponge soaked in rum, layered with zabaione — egg yolks, sweet butter, Marsala, and sherry — dusted with fine cake crumbs. Shaped into its iconic dome. Light as a whisper. Unforgettable as a memory.',
+     'back_copy'=>'A vanilla sponge soaked in rum, layered with zabaione  egg yolks, sweet butter, Marsala, and sherry  dusted with fine cake crumbs. Shaped into its iconic dome. Light as a whisper. Unforgettable as a memory.',
      'price'=>'Slice $8.75 · 8" $57.90','link'=>'#the-sacripantina','image'=>$img['other'],'num'=>'001','accent'=>'#7a1f2e'],
     ['title'=>'Tiramisu','badge'=>'Best in SF','badge_on'=>true,
      'front_copy'=>'Vanilla sponge, espresso, rum, mascarpone. Called the best tiramisu in San Francisco by dozens of customers.',
@@ -37,7 +37,7 @@ get_header(); ?>
     ['title'=>'Cannoli','badge'=>'','badge_on'=>false,
      'front_copy'=>'Crisp shell, sweetened ricotta, chocolate chips. Fried fresh. The way a cannoli should be.',
      'back_title'=>'Fried Fresh Daily',
-     'back_copy'=>'A crisp pastry shell filled with sweetened ricotta and chocolate chips, fried fresh every morning. No shortcuts. No pre-fills. The way a cannoli should be — period.',
+     'back_copy'=>'A crisp pastry shell filled with sweetened ricotta and chocolate chips, fried fresh every morning. No shortcuts. No pre-fills. The way a cannoli should be  period.',
      'price'=>'$7.75 each','link'=>'#order-delivery','image'=>$img['cannoli'],'num'=>'003','accent'=>'#e7bd7b'],
   ];
 
@@ -74,7 +74,7 @@ get_header(); ?>
       <span class="st-h1-italic">Sacripantina.</span>
     </h1>
     <p class="st-hero-sub st-fade-up" style="--d:.25s">Some things cannot be found anywhere else in the world.<br class="st-br-md">The Sacripantina is one of them.</p>
-    <p class="st-hero-body st-fade-up" style="--d:.33s">A vanilla sponge soaked in rum, layered with zabaione — that delicate custard of egg yolks, sweet butter, Marsala, and sherry — dusted with fine cake crumbs and shaped into its iconic dome.</p>
+    <p class="st-hero-body st-fade-up" style="--d:.33s">A vanilla sponge soaked in rum, layered with zabaione  that delicate custard of egg yolks, sweet butter, Marsala, and sherry  dusted with fine cake crumbs and shaped into its iconic dome.</p>
     <p class="st-hero-body st-fade-up" style="--d:.39s">Light as a whisper. Unforgettable as a memory.</p>
     <p class="st-hero-body st-fade-up" style="--d:.43s">It has been made this way, in this corner of North Beach, for over eighty years. Come find it.</p>
     <div class="st-hero-ctas st-fade-up" style="--d:.50s">
@@ -164,7 +164,7 @@ get_header(); ?>
   <div class="st-feature-inner">
     <div class="st-feat-visual st-reveal-left">
       <div class="st-feat-img-main">
-        <img src="<?php echo esc_url($img['hero']); ?>" alt="The Sacripantina — whole cake" loading="lazy">
+        <img src="<?php echo esc_url($img['hero']); ?>" alt="The Sacripantina  whole cake" loading="lazy">
         <div class="st-corner st-c-tl"></div>
         <div class="st-corner st-c-br"></div>
       </div>
@@ -187,7 +187,7 @@ get_header(); ?>
       <p class="st-label">Our Signature</p>
       <h2 class="st-feat-h">The<br><em>Sacripantina.</em></h2>
       <p class="st-feat-italic">Only here. Since 1942.</p>
-      <p class="st-feat-body">There is no other cake like this. Vanilla sponge soaked in rum, layered with zabaione — egg yolks, sweet butter, Marsala, sherry — finished with a dusting of fine crumbs. Light as a whisper. It cannot be explained. It can only be tasted.</p>
+      <p class="st-feat-body">There is no other cake like this. Vanilla sponge soaked in rum, layered with zabaione  egg yolks, sweet butter, Marsala, sherry  finished with a dusting of fine crumbs. Light as a whisper. It cannot be explained. It can only be tasted.</p>
       <div class="st-feat-prices">
         <?php foreach([['Slice','$8.75'],['6" Cake','$45.00'],['8" Cake','$57.90']] as [$pl,$pv]): ?>
           <div class="st-feat-price-blk">
@@ -208,7 +208,7 @@ get_header(); ?>
       <span class="st-oc-num-bg">01</span>
       <p class="st-label">Available Now</p>
       <h3 class="st-oc-h">Order for<br><em>Delivery</em></h3>
-      <p class="st-oc-body">The Sacripantina — and everything else in our cases — is available for delivery via DoorDash and Uber Eats. Or come find us at 446 Columbus Ave, every day from 7:30am.</p>
+      <p class="st-oc-body">The Sacripantina  and everything else in our cases is available for delivery via DoorDash and Uber Eats. Or come find us at 446 Columbus Ave, every day from 7:30am.</p>
       <ul class="st-oc-list">
         <li>DoorDash and Uber Eats delivery available</li>
         <li>In-store daily 7:30am–8:00pm (Fri &amp; Sat until 11pm)</li>
@@ -220,7 +220,7 @@ get_header(); ?>
       <span class="st-oc-num-bg">02</span>
       <p class="st-label st-label-gold">Weddings · Celebrations · Events</p>
       <h3 class="st-oc-h">Catering &amp;<br><em>Custom Orders</em></h3>
-      <p class="st-oc-body">From a birthday cake to a wedding — Stella has been part of the most important moments of San Francisco families for over eighty years. Let us be part of yours.</p>
+      <p class="st-oc-body">From a birthday cake to a wedding  Stella has been part of the most important moments of San Francisco families for over eighty years. Let us be part of yours.</p>
       <ul class="st-oc-list">
         <li>Custom cakes for weddings, birthdays, anniversaries, christenings</li>
         <li>Corporate gifting and event catering</li>
@@ -269,7 +269,7 @@ get_header(); ?>
   <div class="st-quote-inner st-reveal-up">
     <div class="st-quote-ornament">✦ ✦ ✦</div>
     <div class="st-open-mark">"</div>
-    <blockquote class="st-quote-text">Stella Pastry &amp; Cafe opened its doors on Columbus Avenue in 1942. Since then, it has passed from one Italian family to the next — each one committed to protecting the recipes, preserving the flavors, and never compromising on the craft. Over eighty years later, nothing has changed.</blockquote>
+    <blockquote class="st-quote-text">Stella Pastry &amp; Cafe opened its doors on Columbus Avenue in 1942. Since then, it has passed from one Italian family to the next  each one committed to protecting the recipes, preserving the flavors, and never compromising on the craft. Over eighty years later, nothing has changed.</blockquote>
     <div class="st-quote-attr">
       <div class="st-quote-rule"></div>
       <span>Since 1942 &nbsp;·&nbsp; North Beach, San Francisco &nbsp;·&nbsp; The House of Sacripantina</span>
@@ -341,7 +341,7 @@ function st_arrow($size=15){
   font-weight:500;letter-spacing:-.03em;color:var(--ink);margin:.4rem 0 0
 }
 
-/* Buttons — shared base for text-shadow */
+/* Buttons  shared base for text-shadow */
 .st-btn-gold,.st-btn-ghost,.st-btn-ghost-warm,.st-flip-back-btn{text-shadow:0 1px 1px rgba(0,0,0,.12)}
 .st-btn-gold>span,.st-btn-gold>svg,
 .st-btn-ghost>span,.st-btn-ghost>svg,
@@ -809,7 +809,7 @@ document.addEventListener('DOMContentLoaded',function(){
     revEls.forEach(function(el){el.classList.add('is-visible');});
   }
 
-  /* Flip cards — keyboard + click */
+  /* Flip cards  keyboard + click */
   document.querySelectorAll('.st-flip-card').forEach(function(card){
     var flipped=false;
     card.addEventListener('keydown',function(e){

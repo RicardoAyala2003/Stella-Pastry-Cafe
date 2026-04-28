@@ -5,7 +5,7 @@ const navLinks = [
   { label: "The Sacripantina", href: "#the-sacripantina" },
   { label: "Catering", href: "#catering" },
   { label: "Our Story", href: "#brand-quote" },
-  { label: "Order Now", href: "#order-delivery" },
+  { label: "Order Pickup", href: "#order-delivery" },
   { label: "Contact", href: "#visit-us" },
 ]
 
@@ -15,19 +15,22 @@ const socialLinks = [
   { label: "Yelp", href: "#" },
 ]
 
+const footerLogo =
+  "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Sello-scaled.png"
+
+const supportAccent =
+  "/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png"
+
 export default function Footer() {
   useEffect(() => {
     const items = document.querySelectorAll(".st-footer-reveal")
-
     if (!items.length) return
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("is-visible")
-            }, index * 100)
+            setTimeout(() => entry.target.classList.add("is-visible"), index * 100)
             observer.unobserve(entry.target)
           }
         })
@@ -36,7 +39,6 @@ export default function Footer() {
     )
 
     items.forEach((item) => observer.observe(item))
-
     return () => observer.disconnect()
   }, [])
 
@@ -46,6 +48,10 @@ export default function Footer() {
 
       <div className="st-footer-shell">
         <div className="st-footer-postcard">
+          <div className="st-footer-accent" aria-hidden="true">
+            <img src={supportAccent} alt="" />
+          </div>
+
           <div className="st-footer-scene" aria-hidden="true">
             <span className="st-table st-table-left" />
             <span className="st-table st-table-right" />
@@ -57,11 +63,14 @@ export default function Footer() {
             <span className="st-planter st-planter-right" />
           </div>
 
+          <div className="st-footer-watermark" aria-hidden="true">
+            <img src={footerLogo} alt="" />
+          </div>
+
           <div className="st-footer-grid">
             <div className="st-footer-brand-col st-footer-reveal">
               <a href="#top" className="st-footer-brand" aria-label="Stella Pastry & Cafe Home">
-                <strong>Stella Pastry & Cafe</strong>
-                <em>The House of Sacripantina</em>
+                <img src={footerLogo} alt="Stella Pastry & Cafe — The House of Sacripantina" />
               </a>
 
               <p className="st-footer-tagline">

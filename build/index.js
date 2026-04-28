@@ -91,7 +91,7 @@ const navLinks = [{
   label: "Our Story",
   href: "#brand-quote"
 }, {
-  label: "Order Now",
+  label: "Order Pickup",
   href: "#order-delivery"
 }, {
   label: "Contact",
@@ -107,6 +107,8 @@ const socialLinks = [{
   label: "Yelp",
   href: "#"
 }];
+const footerLogo = "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Sello-scaled.png";
+const supportAccent = "/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png";
 function Footer() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const items = document.querySelectorAll(".st-footer-reveal");
@@ -114,9 +116,7 @@ function Footer() {
     const observer = new IntersectionObserver(entries => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add("is-visible");
-          }, index * 100);
+          setTimeout(() => entry.target.classList.add("is-visible"), index * 100);
           observer.unobserve(entry.target);
         }
       });
@@ -135,7 +135,14 @@ function Footer() {
       className: "st-footer-shell",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "st-footer-postcard",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "st-footer-accent",
+          "aria-hidden": "true",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            src: supportAccent,
+            alt: ""
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "st-footer-scene",
           "aria-hidden": "true",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -155,19 +162,25 @@ function Footer() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
             className: "st-planter st-planter-right"
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "st-footer-watermark",
+          "aria-hidden": "true",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            src: footerLogo,
+            alt: ""
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "st-footer-grid",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "st-footer-brand-col st-footer-reveal",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               href: "#top",
               className: "st-footer-brand",
               "aria-label": "Stella Pastry & Cafe Home",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                children: "Stella Pastry & Cafe"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                children: "The House of Sacripantina"
-              })]
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                src: footerLogo,
+                alt: "Stella Pastry & Cafe \u2014 The House of Sacripantina"
+              })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
               className: "st-footer-tagline",
               children: "Since 1942, Stella Pastry & Cafe has remained the place for the one cake that cannot be found anywhere else."
@@ -285,8 +298,31 @@ const navLinks = [{
   label: "Our Story",
   href: "#brand-quote"
 }];
+const logoUrl = "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png";
 function Navbar() {
   const [menuOpen, setMenuOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [scrolled, setScrolled] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  // Use a ref for the scroll progress (0–1) to drive smooth interpolation
+  const scrollProgressRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+  const rafRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // Smoother scroll detection — uses rAF to interpolate the "scrolled" state
+  // so the CSS transition has a head-start before the class flips
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const THRESHOLD = 40; // px before "scrolled" kicks in
+    const FADE_RANGE = 60; // px over which we consider the header "mid-scroll"
+
+    const handleScroll = () => {
+      const y = window.scrollY;
+      scrollProgressRef.current = Math.min(1, Math.max(0, (y - THRESHOLD) / FADE_RANGE));
+      setScrolled(y > THRESHOLD);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, {
+      passive: true
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) setMenuOpen(false);
@@ -305,8 +341,8 @@ function Navbar() {
       e.preventDefault();
       const wpAdminBar = document.getElementById("wpadminbar");
       const adminBarHeight = wpAdminBar ? wpAdminBar.offsetHeight : 0;
-      const navOffset = window.innerWidth >= 1024 ? 110 : 92;
-      const extraGap = 12;
+      const navOffset = window.innerWidth >= 1024 ? 104 : 86;
+      const extraGap = 10;
       const top = targetEl.getBoundingClientRect().top + window.pageYOffset - adminBarHeight - navOffset - extraGap;
       window.scrollTo({
         top,
@@ -317,25 +353,38 @@ function Navbar() {
     document.addEventListener("click", handleAnchorClick);
     return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
+
+  // Close mobile menu on ESC
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const handleKey = e => {
+      if (e.key === "Escape" && menuOpen) setMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [menuOpen]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
-      className: "fixed left-0 right-0 z-[999] border-b border-[var(--st-border)] bg-[var(--st-cream)] shadow-[0_12px_36px_rgba(44,26,14,0.08)] transition-all duration-300",
+      className: `st-site-header fixed left-0 right-0 z-[999] transition-all duration-500 ${scrolled ? "is-scrolled" : "is-top"}`,
       style: {
         top: "var(--wp-admin--admin-bar--height, 0px)"
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8",
+        className: "st-site-header__inner mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           href: "#top",
-          className: "shrink-0 font-[var(--st-font-display)] text-[1.55rem] italic leading-none tracking-[-0.03em] text-[var(--st-dark)] transition duration-300",
+          className: "st-brand",
           "aria-label": "Stella Pastry & Cafe Home",
-          children: "Stella Pastry & Cafe"
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            src: logoUrl,
+            alt: "Stella Pastry & Cafe \u2014 The House of Sacripantina"
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "hidden items-center gap-5 lg:flex",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
             className: "st-nav",
+            "aria-label": "Main navigation",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "container is-scrolled",
+              className: "container",
               children: [navLinks.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
                 href: item.href,
                 className: "btn",
@@ -347,6 +396,7 @@ function Navbar() {
                 height: "100%",
                 viewBox: "0 0 400 60",
                 preserveAspectRatio: "none",
+                "aria-hidden": "true",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("rect", {
                   className: "rect",
                   pathLength: "100",
@@ -361,7 +411,7 @@ function Navbar() {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "#order-delivery",
-            className: "inline-flex items-center justify-center bg-[var(--st-gold)] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--st-dark)] shadow-[0_14px_34px_rgba(198,156,60,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(198,156,60,0.28)]",
+            className: "st-nav-order",
             children: "Order Now"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
@@ -369,40 +419,42 @@ function Navbar() {
           "aria-label": menuOpen ? "Close menu" : "Open menu",
           "aria-expanded": menuOpen,
           onClick: () => setMenuOpen(prev => !prev),
-          className: "inline-flex h-11 w-11 items-center justify-center border border-[var(--st-border)] bg-white text-[var(--st-dark)] transition duration-300 lg:hidden",
+          className: "st-menu-toggle lg:hidden",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
             className: "relative block h-4 w-5",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: `absolute left-0 top-0 h-px w-5 bg-current transition duration-300 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`
+              className: `absolute left-0 top-0 h-px w-5 bg-current transition-transform duration-300 ease-in-out ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: `absolute left-0 top-[7px] h-px w-5 bg-current transition duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`
+              className: `absolute left-0 top-[7px] h-px w-5 bg-current transition-opacity duration-300 ease-in-out ${menuOpen ? "opacity-0" : "opacity-100"}`
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: `absolute left-0 top-[14px] h-px w-5 bg-current transition duration-300 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`
+              className: `absolute left-0 top-[14px] h-px w-5 bg-current transition-transform duration-300 ease-in-out ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`
             })]
           })
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: `overflow-hidden border-t transition-all duration-300 lg:hidden ${menuOpen ? "max-h-[420px] border-[var(--st-border)] bg-[var(--st-cream)] opacity-100" : "max-h-0 border-transparent opacity-0"}`,
+        className: `st-mobile-panel lg:hidden ${menuOpen ? "is-open" : ""}`,
+        "aria-hidden": !menuOpen,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
-          className: "mx-auto max-w-[1440px] px-4 py-3 sm:px-6",
+          className: "mx-auto max-w-[1440px] px-4 py-4 sm:px-6",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "grid gap-2",
             children: [navLinks.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               href: item.href,
-              className: "px-2 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--st-text)] transition duration-300 hover:text-[var(--st-burgundy)]",
+              className: "st-mobile-link",
               children: item.label
             }, item.label)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               href: "#order-delivery",
-              className: "mt-2 inline-flex items-center justify-center bg-[var(--st-gold)] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--st-dark)] transition duration-300 hover:opacity-90",
+              className: "st-mobile-order",
               children: "Order Now"
             })]
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "navbar-wave"
+        className: "navbar-wave",
+        "aria-hidden": "true"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "h-[78px] lg:h-[102px]",
+      className: "h-[80px] lg:h-[100px]",
       "aria-hidden": "true"
     })]
   });

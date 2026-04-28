@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 
 const navLinks = [
   { label: "Menu", href: "#from-our-cases" },
@@ -7,14 +7,37 @@ const navLinks = [
   { label: "Our Story", href: "#brand-quote" },
 ]
 
+const logoUrl =
+  "http://stella-pastry-cafe.local/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png"
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  // Use a ref for the scroll progress (0–1) to drive smooth interpolation
+  const scrollProgressRef = useRef(0)
+  const rafRef = useRef(null)
+
+  // Smoother scroll detection — uses rAF to interpolate the "scrolled" state
+  // so the CSS transition has a head-start before the class flips
+  useEffect(() => {
+    const THRESHOLD = 40        // px before "scrolled" kicks in
+    const FADE_RANGE = 60       // px over which we consider the header "mid-scroll"
+
+    const handleScroll = () => {
+      const y = window.scrollY
+      scrollProgressRef.current = Math.min(1, Math.max(0, (y - THRESHOLD) / FADE_RANGE))
+      setScrolled(y > THRESHOLD)
+    }
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) setMenuOpen(false)
     }
-
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
@@ -34,8 +57,8 @@ export default function Navbar() {
 
       const wpAdminBar = document.getElementById("wpadminbar")
       const adminBarHeight = wpAdminBar ? wpAdminBar.offsetHeight : 0
-      const navOffset = window.innerWidth >= 1024 ? 110 : 92
-      const extraGap = 12
+      const navOffset = window.innerWidth >= 1024 ? 104 : 86
+      const extraGap = 10
 
       const top =
         targetEl.getBoundingClientRect().top +
@@ -44,11 +67,7 @@ export default function Navbar() {
         navOffset -
         extraGap
 
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      })
-
+      window.scrollTo({ top, behavior: "smooth" })
       setMenuOpen(false)
     }
 
@@ -56,30 +75,39 @@ export default function Navbar() {
     return () => document.removeEventListener("click", handleAnchorClick)
   }, [])
 
+  // Close mobile menu on ESC
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape" && menuOpen) setMenuOpen(false)
+    }
+    document.addEventListener("keydown", handleKey)
+    return () => document.removeEventListener("keydown", handleKey)
+  }, [menuOpen])
+
   return (
     <>
-     <header
-  className="fixed left-0 right-0 z-[999] border-b border-[var(--st-border)] bg-[var(--st-cream)] shadow-[0_12px_36px_rgba(44,26,14,0.08)] transition-all duration-300"
+      <header
+        className={`st-site-header fixed left-0 right-0 z-[999] transition-all duration-500 ${
+          scrolled ? "is-scrolled" : "is-top"
+        }`}
         style={{ top: "var(--wp-admin--admin-bar--height, 0px)" }}
       >
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
-          <a
-            href="#top"
-            className="shrink-0 font-[var(--st-font-display)] text-[1.55rem] italic leading-none tracking-[-0.03em] text-[var(--st-dark)] transition duration-300"
-            aria-label="Stella Pastry & Cafe Home"
-          >
-            Stella Pastry & Cafe
+        <div className="st-site-header__inner mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
+
+          {/* Logo — larger, smooth transition */}
+          <a href="#top" className="st-brand" aria-label="Stella Pastry & Cafe Home">
+            <img
+              src={logoUrl}
+              alt="Stella Pastry & Cafe — The House of Sacripantina"
+            />
           </a>
 
+          {/* Desktop nav */}
           <div className="hidden items-center gap-5 lg:flex">
-            <div className="st-nav">
-              <div className="container is-scrolled">
+            <nav className="st-nav" aria-label="Main navigation">
+              <div className="container">
                 {navLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="btn"
-                  >
+                  <a key={item.label} href={item.href} className="btn">
                     {item.label}
                   </a>
                 ))}
@@ -91,6 +119,7 @@ export default function Navbar() {
                   height="100%"
                   viewBox="0 0 400 60"
                   preserveAspectRatio="none"
+                  aria-hidden="true"
                 >
                   <rect
                     className="rect"
@@ -104,36 +133,34 @@ export default function Navbar() {
                   />
                 </svg>
               </div>
-            </div>
+            </nav>
 
-            <a
-              href="#order-delivery"
-              className="inline-flex items-center justify-center bg-[var(--st-gold)] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--st-dark)] shadow-[0_14px_34px_rgba(198,156,60,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(198,156,60,0.28)]"
-            >
+            <a href="#order-delivery" className="st-nav-order">
               Order Now
             </a>
           </div>
 
+          {/* Mobile hamburger */}
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="inline-flex h-11 w-11 items-center justify-center border border-[var(--st-border)] bg-white text-[var(--st-dark)] transition duration-300 lg:hidden"
+            className="st-menu-toggle lg:hidden"
           >
             <span className="relative block h-4 w-5">
               <span
-                className={`absolute left-0 top-0 h-px w-5 bg-current transition duration-300 ${
+                className={`absolute left-0 top-0 h-px w-5 bg-current transition-transform duration-300 ease-in-out ${
                   menuOpen ? "translate-y-[7px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`absolute left-0 top-[7px] h-px w-5 bg-current transition duration-300 ${
+                className={`absolute left-0 top-[7px] h-px w-5 bg-current transition-opacity duration-300 ease-in-out ${
                   menuOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 top-[14px] h-px w-5 bg-current transition duration-300 ${
+                className={`absolute left-0 top-[14px] h-px w-5 bg-current transition-transform duration-300 ease-in-out ${
                   menuOpen ? "-translate-y-[7px] -rotate-45" : ""
                 }`}
               />
@@ -141,39 +168,30 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Mobile panel */}
         <div
-          className={`overflow-hidden border-t transition-all duration-300 lg:hidden ${
-            menuOpen
-              ? "max-h-[420px] border-[var(--st-border)] bg-[var(--st-cream)] opacity-100"
-              : "max-h-0 border-transparent opacity-0"
-          }`}
+          className={`st-mobile-panel lg:hidden ${menuOpen ? "is-open" : ""}`}
+          aria-hidden={!menuOpen}
         >
-          <nav className="mx-auto max-w-[1440px] px-4 py-3 sm:px-6">
+          <nav className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6">
             <div className="grid gap-2">
               {navLinks.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="px-2 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--st-text)] transition duration-300 hover:text-[var(--st-burgundy)]"
-                >
+                <a key={item.label} href={item.href} className="st-mobile-link">
                   {item.label}
                 </a>
               ))}
-
-              <a
-                href="#order-delivery"
-                className="mt-2 inline-flex items-center justify-center bg-[var(--st-gold)] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--st-dark)] transition duration-300 hover:opacity-90"
-              >
+              <a href="#order-delivery" className="st-mobile-order">
                 Order Now
               </a>
             </div>
           </nav>
         </div>
 
-        <div className="navbar-wave" />
+        <div className="navbar-wave" aria-hidden="true" />
       </header>
 
-      <div className="h-[78px] lg:h-[102px]" aria-hidden="true" />
+      {/* Spacer so content doesn't hide under the fixed navbar */}
+      <div className="h-[80px] lg:h-[100px]" aria-hidden="true" />
     </>
   )
 }
