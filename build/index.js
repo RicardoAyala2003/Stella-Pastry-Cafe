@@ -62,6 +62,75 @@ class Person {
 
 /***/ },
 
+/***/ "./src/scripts/StellaFloatingOrder.js"
+/*!********************************************!*\
+  !*** ./src/scripts/StellaFloatingOrder.js ***!
+  \********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StellaFloatingOrder)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const logoUrl = "/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png";
+function StellaFloatingOrder() {
+  const [isVisible, setIsVisible] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const showTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 900);
+    return () => clearTimeout(showTimer);
+  }, []);
+  const handleClick = e => {
+    const target = document.querySelector("#order-delivery");
+    if (!target) return;
+    e.preventDefault();
+    const wpAdminBar = document.getElementById("wpadminbar");
+    const adminBarHeight = wpAdminBar ? wpAdminBar.offsetHeight : 0;
+    const navOffset = window.innerWidth >= 1024 ? 104 : 86;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - adminBarHeight - navOffset - 10;
+    window.scrollTo({
+      top,
+      behavior: "smooth"
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: `st-floating-order ${isVisible ? "is-visible" : ""}`,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+      href: "#order-delivery",
+      className: "st-floating-order__card",
+      onClick: handleClick,
+      "aria-label": "Order Stella Pastry and Cafe",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "st-floating-order__logo",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: logoUrl,
+          alt: "",
+          "aria-hidden": "true"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        className: "st-floating-order__copy",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+          children: "Stella Pastry & Cafe"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("small", {
+          children: "Order delivery or pickup"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "st-floating-order__btn",
+        children: "Order now"
+      })]
+    })
+  });
+}
+
+/***/ },
+
 /***/ "./src/scripts/footer.js"
 /*!*******************************!*\
   !*** ./src/scripts/footer.js ***!
@@ -298,20 +367,74 @@ const navLinks = [{
   label: "Our Story",
   href: "#brand-quote"
 }];
+const socialLinks = [{
+  label: "Google Business",
+  href: "https://share.google/I4zdmCiXB7rkyddnu",
+  icon: "google"
+}, {
+  label: "Yelp",
+  href: "https://www.yelp.com/biz/stella-pastry-and-cafe-san-francisco",
+  icon: "yelp-text"
+}];
 const logoUrl = "/wp-content/uploads/2026/04/Stella_Principal_tagline-scaled.png";
+function SocialIcon({
+  type
+}) {
+  if (type === "yelp-text") {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      className: "st-yelp-text",
+      children: "YELP"
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M21.8 12.24c0-.76-.07-1.49-.2-2.18H12v4.12h5.49a4.7 4.7 0 0 1-2.04 3.08v2.67h3.3c1.93-1.85 3.05-4.56 3.05-7.69Z",
+      fill: "currentColor"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M12 22c2.76 0 5.07-.95 6.75-2.57l-3.3-2.67c-.91.64-2.08 1.02-3.45 1.02-2.65 0-4.9-1.86-5.7-4.36H2.89v2.76A10.05 10.05 0 0 0 12 22Z",
+      fill: "currentColor",
+      opacity: ".86"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M6.3 13.42a6.25 6.25 0 0 1 0-3.84V6.82H2.89a10.34 10.34 0 0 0 0 9.36l3.41-2.76Z",
+      fill: "currentColor",
+      opacity: ".72"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M12 5.22c1.5 0 2.84.54 3.9 1.58l2.93-3.05C17.06 2.05 14.75 1 12 1a10.05 10.05 0 0 0-9.11 5.82L6.3 9.58c.8-2.5 3.05-4.36 5.7-4.36Z",
+      fill: "currentColor",
+      opacity: ".94"
+    })]
+  });
+}
+function SocialLinks({
+  className = ""
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: `st-socials ${className}`,
+    "aria-label": "Stella social links",
+    children: socialLinks.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      href: item.href,
+      className: "st-social-link",
+      target: "_blank",
+      rel: "noopener noreferrer",
+      "aria-label": item.label,
+      title: item.label,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SocialIcon, {
+        type: item.icon
+      })
+    }, item.label))
+  });
+}
 function Navbar() {
   const [menuOpen, setMenuOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [scrolled, setScrolled] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  // Use a ref for the scroll progress (0–1) to drive smooth interpolation
   const scrollProgressRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
   const rafRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  // Smoother scroll detection — uses rAF to interpolate the "scrolled" state
-  // so the CSS transition has a head-start before the class flips
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    const THRESHOLD = 40; // px before "scrolled" kicks in
-    const FADE_RANGE = 60; // px over which we consider the header "mid-scroll"
-
+    const THRESHOLD = 40;
+    const FADE_RANGE = 60;
     const handleScroll = () => {
       const y = window.scrollY;
       scrollProgressRef.current = Math.min(1, Math.max(0, (y - THRESHOLD) / FADE_RANGE));
@@ -353,8 +476,6 @@ function Navbar() {
     document.addEventListener("click", handleAnchorClick);
     return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
-
-  // Close mobile menu on ESC
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const handleKey = e => {
       if (e.key === "Escape" && menuOpen) setMenuOpen(false);
@@ -362,6 +483,11 @@ function Navbar() {
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [menuOpen]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
       className: `st-site-header fixed left-0 right-0 z-[999] transition-all duration-500 ${scrolled ? "is-scrolled" : "is-top"}`,
@@ -379,7 +505,7 @@ function Navbar() {
             alt: "Stella Pastry & Cafe \u2014 The House of Sacripantina"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "hidden items-center gap-5 lg:flex",
+          className: "st-desktop-main",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
             className: "st-nav",
             "aria-label": "Main navigation",
@@ -413,26 +539,33 @@ function Navbar() {
             href: "#order-delivery",
             className: "st-nav-order",
             children: "Order Now"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SocialLinks, {
+            className: "st-socials-desktop"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-          type: "button",
-          "aria-label": menuOpen ? "Close menu" : "Open menu",
-          "aria-expanded": menuOpen,
-          onClick: () => setMenuOpen(prev => !prev),
-          className: "st-menu-toggle lg:hidden",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-            className: "relative block h-4 w-5",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: `absolute left-0 top-0 h-px w-5 bg-current transition-transform duration-300 ease-in-out ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: `absolute left-0 top-[7px] h-px w-5 bg-current transition-opacity duration-300 ease-in-out ${menuOpen ? "opacity-0" : "opacity-100"}`
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: `absolute left-0 top-[14px] h-px w-5 bg-current transition-transform duration-300 ease-in-out ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`
-            })]
-          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "st-mobile-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SocialLinks, {
+            className: "st-socials-mobile-top"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            type: "button",
+            "aria-label": menuOpen ? "Close menu" : "Open menu",
+            "aria-expanded": menuOpen,
+            onClick: () => setMenuOpen(prev => !prev),
+            className: "st-menu-toggle",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "relative block h-4 w-5",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: `absolute left-0 top-0 h-px w-5 bg-current transition-transform duration-300 ease-in-out ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: `absolute left-0 top-[7px] h-px w-5 bg-current transition-opacity duration-300 ease-in-out ${menuOpen ? "opacity-0" : "opacity-100"}`
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: `absolute left-0 top-[14px] h-px w-5 bg-current transition-transform duration-300 ease-in-out ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`
+              })]
+            })
+          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: `st-mobile-panel lg:hidden ${menuOpen ? "is-open" : ""}`,
+        className: `st-mobile-panel ${menuOpen ? "is-open" : ""}`,
         "aria-hidden": !menuOpen,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
           className: "mx-auto max-w-[1440px] px-4 py-4 sm:px-6",
@@ -446,6 +579,14 @@ function Navbar() {
               href: "#order-delivery",
               className: "st-mobile-order",
               children: "Order Now"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "st-mobile-social-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "st-mobile-social-label",
+                children: "Find us on"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SocialLinks, {
+                className: "st-socials-mobile-panel"
+              })]
             })]
           })
         })
@@ -610,11 +751,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/ExampleReactComponent */ "./src/scripts/ExampleReactComponent.js");
 /* harmony import */ var _scripts_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/navbar */ "./src/scripts/navbar.js");
 /* harmony import */ var _scripts_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/footer */ "./src/scripts/footer.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _scripts_StellaFloatingOrder__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/StellaFloatingOrder */ "./src/scripts/StellaFloatingOrder.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -625,16 +768,31 @@ __webpack_require__.r(__webpack_exports__);
 const person1 = new _scripts_Person__WEBPACK_IMPORTED_MODULE_0__["default"]("Brad");
 void person1;
 if (document.querySelector("#render-react-example-here")) {
-  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_5__.createRoot(document.querySelector("#render-react-example-here"));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
+  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_6__.createRoot(document.querySelector("#render-react-example-here"));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
 }
 if (document.querySelector("#st-navbar-root")) {
-  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_5__.createRoot(document.querySelector("#st-navbar-root"));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
+  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_6__.createRoot(document.querySelector("#st-navbar-root"));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_scripts_navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
 }
 if (document.querySelector("#st-footer-root")) {
-  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_5__.createRoot(document.querySelector("#st-footer-root"));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_footer__WEBPACK_IMPORTED_MODULE_3__["default"], {}));
+  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_6__.createRoot(document.querySelector("#st-footer-root"));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_scripts_footer__WEBPACK_IMPORTED_MODULE_3__["default"], {}));
+}
+
+/**
+ * Stella floating order CTA
+ * Se monta automáticamente solo en la home.
+ */
+if (document.querySelector(".st-home")) {
+  let floatingRoot = document.querySelector("#st-floating-order-root");
+  if (!floatingRoot) {
+    floatingRoot = document.createElement("div");
+    floatingRoot.id = "st-floating-order-root";
+    document.body.appendChild(floatingRoot);
+  }
+  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_6__.createRoot(floatingRoot);
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_scripts_StellaFloatingOrder__WEBPACK_IMPORTED_MODULE_4__["default"], {}));
 }
 })();
 

@@ -21,6 +21,7 @@ get_header(); ?>
     'stamp_secret' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-01.png',
     'stamp_sacripantina' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-03.png',
     'stamp_round' => '/wp-content/uploads/2026/04/Stella-Elementos-de-Apoyo-04.png',
+    'team'       => '/wp-content/uploads/2026/04/DSC06352-scaled.jpg',
   ];
 
   $products = [
@@ -107,7 +108,61 @@ get_header(); ?>
   </div>
 </nav>
 
-<!-- SECTION 3 · PRODUCT FLIP CARDS -->
+<!-- ============================================================
+     SECTION 3 · ORDER + CATERING + PICKUP  (moved above cases)
+     ============================================================ -->
+<section class="st-oc st-oc-above-cases" style="--st-oc-pattern:url('<?php echo esc_url($img['pattern_reviews']); ?>')">
+  <div class="st-oc-inner st-oc-three">
+
+    <!-- Card 1 · Delivery -->
+    <article id="order-delivery" class="st-oc-card st-oc-light st-reveal-left">
+      <span class="st-oc-num-bg">01</span>
+      <p class="st-label">Available Now</p>
+      <h3 class="st-oc-h">Order for<br><em>Delivery</em></h3>
+      <p class="st-oc-body">The Sacripantina  and everything else in our cases is available for delivery via DoorDash and Uber Eats. Or come find us at 446 Columbus Ave, every day from 7:30am.</p>
+      <ul class="st-oc-list">
+        <li>DoorDash and Uber Eats delivery available</li>
+        <li>In-store daily 7:30am–8:00pm (Fri &amp; Sat until 11pm)</li>
+        <li>Outdoor seating · ADA accessible · Dogs welcome</li>
+      </ul>
+      <a href="#" class="st-btn-gold"><span>Order Now</span><?php echo st_arrow(); ?></a>
+    </article>
+
+    <!-- Card 2 · Pickup (NEW) -->
+    <article id="order-pickup" class="st-oc-card st-oc-mid st-reveal-up">
+      <span class="st-oc-num-bg">02</span>
+      <p class="st-label">Come Find Us</p>
+      <h3 class="st-oc-h">Order for<br><em>Pickup</em></h3>
+      <p class="st-oc-body">Skip the line  order ahead and pick up in-store at 446 Columbus Ave. Fresh from the case, ready when you are.</p>
+      <ul class="st-oc-list">
+        <li>In-store pickup daily from 7:30am</li>
+        <li>Fri &amp; Sat open until 11:00pm</li>
+        <li>446 Columbus Ave, North Beach</li>
+      </ul>
+      <a href="https://maps.google.com/?q=Stella+Pastry+%26+Cafe+446+Columbus+Ave+San+Francisco+CA+94133" target="_blank" rel="noopener" class="st-btn-gold"><span>Get Directions</span><?php echo st_arrow(); ?></a>
+    </article>
+
+    <!-- Card 3 · Catering -->
+    <article id="catering" class="st-oc-card st-oc-dark st-reveal-right">
+      <span class="st-oc-num-bg">03</span>
+      <p class="st-label st-label-gold">Weddings · Celebrations · Events</p>
+      <h3 class="st-oc-h">Catering &amp;<br><em>Custom Orders</em></h3>
+      <p class="st-oc-body">From a birthday cake to a wedding  Stella has been part of the most important moments of San Francisco families for over eighty years. Let us be part of yours.</p>
+      <ul class="st-oc-list">
+        <li>Custom cakes for weddings, birthdays, anniversaries, christenings</li>
+        <li>Corporate gifting and event catering</li>
+        <li>Orders: (415) 986-2914</li>
+      </ul>
+      <a href="#" class="st-btn-ghost-warm"><span>Inquire About Catering</span><?php echo st_arrow(); ?></a>
+    </article>
+
+  </div>
+</section>
+
+<!-- Simple divider between order section and products -->
+<div class="st-simple-section-divider" aria-hidden="true"></div>
+
+<!-- SECTION 4 · PRODUCT FLIP CARDS -->
 <section id="from-our-cases" class="st-products">
   <div class="st-bg-word" aria-hidden="true">CASES</div>
   <div class="st-products-inner">
@@ -159,7 +214,7 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- SECTION 4 · SACRIPANTINA FEATURE -->
+<!-- SECTION 5 · SACRIPANTINA FEATURE -->
 <section id="the-sacripantina" class="st-feature">
   <div class="st-feature-inner">
     <div class="st-feat-visual st-reveal-left">
@@ -201,36 +256,6 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- SECTION 5 · ORDER + CATERING -->
-<section class="st-oc">
-  <div class="st-oc-inner">
-    <article id="order-delivery" class="st-oc-card st-oc-light st-reveal-left">
-      <span class="st-oc-num-bg">01</span>
-      <p class="st-label">Available Now</p>
-      <h3 class="st-oc-h">Order for<br><em>Delivery</em></h3>
-      <p class="st-oc-body">The Sacripantina  and everything else in our cases is available for delivery via DoorDash and Uber Eats. Or come find us at 446 Columbus Ave, every day from 7:30am.</p>
-      <ul class="st-oc-list">
-        <li>DoorDash and Uber Eats delivery available</li>
-        <li>In-store daily 7:30am–8:00pm (Fri &amp; Sat until 11pm)</li>
-        <li>Outdoor seating · ADA accessible · Dogs welcome</li>
-      </ul>
-      <a href="#" class="st-btn-gold"><span>Order Now</span><?php echo st_arrow(); ?></a>
-    </article>
-    <article id="catering" class="st-oc-card st-oc-dark st-reveal-right">
-      <span class="st-oc-num-bg">02</span>
-      <p class="st-label st-label-gold">Weddings · Celebrations · Events</p>
-      <h3 class="st-oc-h">Catering &amp;<br><em>Custom Orders</em></h3>
-      <p class="st-oc-body">From a birthday cake to a wedding  Stella has been part of the most important moments of San Francisco families for over eighty years. Let us be part of yours.</p>
-      <ul class="st-oc-list">
-        <li>Custom cakes for weddings, birthdays, anniversaries, christenings</li>
-        <li>Corporate gifting and event catering</li>
-        <li>Orders: (415) 986-2914</li>
-      </ul>
-      <a href="#" class="st-btn-ghost-warm"><span>Inquire About Catering</span><?php echo st_arrow(); ?></a>
-    </article>
-  </div>
-</section>
-
 <!-- SECTION 6 · REVIEWS -->
 <section class="st-reviews" style="--st-review-pattern:url('<?php echo esc_url($img['pattern_reviews']); ?>'); --st-review-stamp:url('<?php echo esc_url($img['stamp_round']); ?>')">
   <?php echo do_shortcode('[trustindex no-registration=google]'); ?>
@@ -255,26 +280,66 @@ get_header(); ?>
           </div>
         <?php endforeach; ?>
       </div>
-      <a href="https://maps.google.com/?q=446+Columbus+Ave+San+Francisco" target="_blank" rel="noopener" class="st-btn-gold"><span>Get Directions</span><?php echo st_arrow(); ?></a>
+      <a href="https://maps.google.com/?q=Stella+Pastry+%26+Cafe+446+Columbus+Ave+San+Francisco+CA+94133" target="_blank" rel="noopener" class="st-btn-gold"><span>Get Directions</span><?php echo st_arrow(); ?></a>
     </div>
-    <div class="st-visit-imgs st-reveal-right">
-      <div class="st-visit-img-a"><img src="<?php echo esc_url($img['storefront']); ?>" alt="Stella Pastry exterior" loading="lazy"></div>
-      <div class="st-visit-img-b"><img src="<?php echo esc_url($img['cases']); ?>" alt="Display cases" loading="lazy"></div>
+
+    <!-- RIGHT COLUMN: map + two photos stacked -->
+    <div class="st-visit-right st-reveal-right">
+      <!-- Google Maps embed -->
+      <div class="st-visit-map">
+        <iframe
+          src="https://www.google.com/maps?output=embed&q=Stella%20Pastry%20%26%20Cafe%2C%20446%20Columbus%20Ave%2C%20San%20Francisco%2C%20CA%2094133&z=18"
+          width="100%"
+          height="260"
+          style="border:0;display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Stella Pastry & Cafe location map"
+        ></iframe>
+      </div>
+      <!-- Two photos below the map -->
+      <div class="st-visit-imgs">
+        <div class="st-visit-img-a"><img src="<?php echo esc_url($img['storefront']); ?>" alt="Stella Pastry exterior" loading="lazy"></div>
+        <div class="st-visit-img-b"><img src="<?php echo esc_url($img['cases']); ?>" alt="Display cases" loading="lazy"></div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- SECTION 8 · BRAND QUOTE -->
+<!-- SECTION 8 · BRAND QUOTE — now with team photo -->
 <section id="brand-quote" class="st-quote" style="--st-pattern:url('<?php echo esc_url($img['pattern']); ?>'); --st-quote-stamp:url('<?php echo esc_url($img['stamp_secret']); ?>')">
-  <div class="st-quote-inner st-reveal-up">
-    <div class="st-quote-ornament">✦ ✦ ✦</div>
-    <div class="st-open-mark">"</div>
-    <blockquote class="st-quote-text">Stella Pastry &amp; Cafe opened its doors on Columbus Avenue in 1942. Since then, it has passed from one Italian family to the next  each one committed to protecting the recipes, preserving the flavors, and never compromising on the craft. Over eighty years later, nothing has changed.</blockquote>
-    <div class="st-quote-attr">
-      <div class="st-quote-rule"></div>
-      <span>Since 1942 &nbsp;·&nbsp; North Beach, San Francisco &nbsp;·&nbsp; The House of Sacripantina</span>
-      <div class="st-quote-rule"></div>
+  <div class="st-quote-layout st-reveal-up">
+
+    <!-- Text block (left / top) -->
+    <div class="st-quote-text-col">
+      <div class="st-quote-ornament">✦ ✦ ✦</div>
+      <div class="st-open-mark">"</div>
+      <blockquote class="st-quote-text">Stella Pastry &amp; Cafe opened its doors on Columbus Avenue in 1942. Since then, it has passed from one Italian family to the next  each one committed to protecting the recipes, preserving the flavors, and never compromising on the craft. Over eighty years later, nothing has changed.</blockquote>
+      <div class="st-quote-attr">
+        <div class="st-quote-rule"></div>
+        <span>Since 1942 &nbsp;·&nbsp; North Beach, San Francisco &nbsp;·&nbsp; The House of Sacripantina</span>
+        <div class="st-quote-rule"></div>
+      </div>
     </div>
+
+    <!-- Team photo (right / bottom) -->
+    <div class="st-quote-team-col">
+      <div class="st-quote-team-img-wrap">
+        <img
+          src="<?php echo esc_url($img['team']); ?>"
+          alt="The Stella Pastry & Cafe team"
+          loading="lazy"
+          class="st-quote-team-img"
+        >
+        <div class="st-quote-team-caption">
+          <span class="st-quote-team-rule"></span>
+          <span>The Stella Team · North Beach, San Francisco</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -672,29 +737,57 @@ function st_arrow($size=15){
 .st-feat-price-lab{display:block;font-family:var(--fb);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--sky);margin-bottom:.5rem}
 .st-feat-price-val{display:block;font-family:var(--fd);font-size:1.4rem;font-style:italic;color:var(--gold)}
 
-/* Order + Catering */
+/* ==========================================================
+   ORDER + CATERING — Three-card layout (above cases)
+   ========================================================== */
 .st-oc{padding:6rem 2rem;background:var(--surface-page);border-top:1px solid var(--bd)}
-.st-oc-inner{max-width:1400px;margin:0 auto;display:grid;gap:1.5rem}
-@media(min-width:960px){.st-oc-inner{grid-template-columns:1fr 1fr}}
-.st-oc-card{padding:3rem 2.5rem;position:relative;overflow:hidden;border:1px solid var(--bd)}
+.st-oc-above-cases{border-top:none;border-bottom:1px solid var(--bd)}
+
+/* Default: stacked (mobile). Desktop: 3 equal columns */
+.st-oc-inner{max-width:1400px;margin:0 auto;display:grid;gap:1.5rem;position:relative;z-index:1}
+@media(min-width:960px){.st-oc-inner{grid-template-columns:1fr 1fr}}   /* fallback 2-col */
+.st-oc-three{grid-template-columns:1fr}                                  /* reset */
+@media(min-width:700px){.st-oc-three{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.st-oc-three{grid-template-columns:1fr 1fr 1fr}}
+
+.st-oc-card{padding:3rem 2.5rem;position:relative;overflow:hidden;border:1px solid var(--bd);box-shadow:0 22px 50px rgba(63,16,22,.06)}
 @media(min-width:640px){.st-oc-card{padding:3.5rem 3rem}}
 .st-oc-light{background:#fff}
 .st-oc-dark{background:var(--espresso-mid);border-color:rgba(231,189,123,.10)}
+
+/* Middle pickup card — warm cream to match light but slightly different */
+.st-oc-mid{
+  background:
+    linear-gradient(135deg,rgba(164,204,212,.96) 0%,rgba(164,204,212,.72) 38%,rgba(235,230,224,.98) 100%);
+  border-color:rgba(58,94,144,.28);
+  box-shadow:0 24px 55px rgba(58,94,144,.13)
+}
+.st-oc-mid::before{
+  content:"";position:absolute;inset:18px;border:1px solid rgba(58,94,144,.18);pointer-events:none
+}
+.st-oc-mid::after{
+  content:"PICKUP";position:absolute;right:-.2rem;bottom:1.1rem;
+  font-family:var(--fb);font-size:clamp(2.8rem,5vw,5.3rem);font-weight:800;letter-spacing:.16em;
+  color:rgba(58,94,144,.075);line-height:1;pointer-events:none
+}
+
 .st-oc-num-bg{position:absolute;top:1.5rem;right:2rem;font-family:var(--fd);font-size:5rem;font-style:italic;font-weight:700;color:transparent;line-height:1;pointer-events:none;user-select:none;-webkit-text-stroke:1.5px}
-.st-oc-light .st-oc-num-bg{-webkit-text-stroke-color:rgba(44,26,14,.06)}
+.st-oc-light .st-oc-num-bg,.st-oc-mid .st-oc-num-bg{-webkit-text-stroke-color:rgba(44,26,14,.06)}
 .st-oc-dark  .st-oc-num-bg{-webkit-text-stroke-color:rgba(231,189,123,.07)}
 .st-oc-h{font-family:var(--fd);font-size:clamp(2rem,3.8vw,3rem);font-weight:600;line-height:.95;letter-spacing:-.04em;margin:1rem 0 1.5rem}
-.st-oc-light .st-oc-h{color:var(--ink)}
+.st-oc-light .st-oc-h,.st-oc-mid .st-oc-h{color:var(--ink)}
 .st-oc-light .st-oc-h em{color:var(--burgundy);font-style:italic}
+.st-oc-mid .st-oc-h em{color:var(--navy);font-style:italic}
 .st-oc-dark  .st-oc-h{color:var(--cream)}
 .st-oc-dark  .st-oc-h em{color:var(--gold);font-style:italic}
 .st-oc-body{font-size:14px;line-height:1.85;margin-bottom:1.5rem}
-.st-oc-light .st-oc-body{color:var(--soft)}
+.st-oc-light .st-oc-body,.st-oc-mid .st-oc-body{color:var(--soft)}
 .st-oc-dark  .st-oc-body{color:rgba(235,230,224,.48)}
 .st-oc-list{list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:2px}
 .st-oc-list li{display:flex;align-items:center;gap:12px;padding:12px 16px;font-size:13px}
 .st-oc-list li::before{content:'';display:block;width:16px;height:1.5px;background:var(--gold);flex-shrink:0}
 .st-oc-light .st-oc-list li{background:rgba(44,26,14,.03);color:var(--text)}
+.st-oc-mid .st-oc-list li{background:rgba(255,255,255,.36);color:var(--text);border:1px solid rgba(58,94,144,.08)}
 .st-oc-dark  .st-oc-list li{background:rgba(235,230,224,.03);color:rgba(235,230,224,.56)}
 
 /* Reviews */
@@ -727,22 +820,41 @@ function st_arrow($size=15){
 }
 .st-reviews > *{max-width:1400px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
 
-/* Visit Us */
+/* ==========================================================
+   VISIT US — with map above images
+   ========================================================== */
 .st-visit{padding:6rem 2rem;background:var(--surface-page);border-top:1px solid var(--bd)}
-.st-visit-inner{max-width:1400px;margin:0 auto;display:grid;gap:4rem;align-items:center}
-@media(min-width:1024px){.st-visit-inner{grid-template-columns:400px 1fr}}
+.st-visit-inner{max-width:1400px;margin:0 auto;display:grid;gap:4rem;align-items:start}
+@media(min-width:1024px){.st-visit-inner{grid-template-columns:400px 1fr;align-items:center}}
 .st-visit-rows{margin:1.8rem 0 2rem;display:flex;flex-direction:column}
 .st-visit-row{display:flex;flex-direction:column;gap:3px;padding:12px 0;border-bottom:1px solid var(--bd)}
 .st-visit-row:last-child{border-bottom:none}
 .st-visit-lab{font-family:var(--fb);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.28em;color:var(--burgundy)}
 .st-visit-val{font-size:13.5px;line-height:1.6;color:var(--soft)}
+
+/* Right column: map + photos stacked */
+.st-visit-right{display:flex;flex-direction:column;gap:1rem}
+
+/* Map embed */
+.st-visit-map{
+  overflow:hidden;
+  border:1px solid var(--bd);
+  box-shadow:0 16px 40px rgba(44,26,14,.08);
+  line-height:0;  /* remove inline gap under iframe */
+}
+.st-visit-map iframe{display:block;width:100%;height:260px;border:0;filter:saturate(.85) contrast(1.04)}
+@media(min-width:640px){.st-visit-map iframe{height:300px}}
+
+/* Two photos side by side */
 .st-visit-imgs{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .st-visit-img-a,.st-visit-img-b{overflow:hidden;border:1px solid var(--bd);box-shadow:0 16px 40px rgba(44,26,14,.08)}
-.st-visit-img-a img,.st-visit-img-b img{width:100%;height:260px;object-fit:cover;transition:transform .6s}
-@media(min-width:640px){.st-visit-img-a img,.st-visit-img-b img{height:340px}}
+.st-visit-img-a img,.st-visit-img-b img{width:100%;height:200px;object-fit:cover;transition:transform .6s}
+@media(min-width:640px){.st-visit-img-a img,.st-visit-img-b img{height:240px}}
 .st-visit-img-a:hover img,.st-visit-img-b:hover img{transform:scale(1.04)}
 
-/* Quote */
+/* ==========================================================
+   BRAND QUOTE — side-by-side layout with team photo
+   ========================================================== */
 .st-quote{
   padding:7rem 2rem;
   background-color:var(--surface-quote);
@@ -767,13 +879,47 @@ function st_arrow($size=15){
   mix-blend-mode:multiply
 }
 
-.st-quote-inner{max-width:840px;margin:0 auto;text-align:center;position:relative;z-index:2}
+/* Two-column layout: text | photo */
+.st-quote-layout{
+  max-width:1200px;margin:0 auto;position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr;gap:4rem;align-items:center
+}
+@media(min-width:900px){.st-quote-layout{grid-template-columns:1fr 1fr;gap:5rem}}
+
+.st-quote-text-col{text-align:center}
+@media(min-width:900px){.st-quote-text-col{text-align:left}}
+
 .st-quote-ornament{font-size:11px;letter-spacing:.6em;color:var(--gold);margin-bottom:1.8rem;opacity:.7}
 .st-open-mark{font-family:var(--fd);font-size:7.5rem;line-height:.5;color:rgba(122,31,46,.1);user-select:none;display:block;margin-bottom:.5rem}
 .st-quote-text{font-family:var(--fd);font-size:clamp(1.15rem,2.4vw,1.65rem);font-style:italic;font-weight:500;line-height:1.65;letter-spacing:-.02em;color:var(--ink);margin:0}
 .st-quote-attr{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2.5rem;flex-wrap:wrap}
+@media(min-width:900px){.st-quote-attr{justify-content:flex-start}}
 .st-quote-rule{height:1px;width:44px;background:rgba(122,31,46,.2)}
 .st-quote-attr span{font-family:var(--fb);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3em;color:var(--soft)}
+
+/* Team photo column */
+.st-quote-team-col{display:flex;justify-content:center}
+@media(min-width:900px){.st-quote-team-col{justify-content:flex-end}}
+
+.st-quote-team-img-wrap{
+  position:relative;
+  max-width:520px;width:100%;
+}
+.st-quote-team-img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+  border:1px solid rgba(122,31,46,.14);
+  box-shadow:0 24px 60px rgba(44,26,14,.14);
+}
+.st-quote-team-caption{
+  display:flex;align-items:center;gap:12px;
+  margin-top:.9rem;
+  font-family:var(--fb);font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.26em;color:var(--soft)
+}
+.st-quote-team-rule{display:block;width:20px;height:1.5px;background:var(--gold);flex-shrink:0}
 
 /* Scroll reveal */
 .st-reveal-up,.st-reveal-left,.st-reveal-right,.st-reveal-stagger{opacity:0;transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);will-change:transform,opacity}
@@ -787,6 +933,183 @@ function st_arrow($size=15){
   .st-fade-up,.st-reveal-up,.st-reveal-left,.st-reveal-right,.st-reveal-stagger{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
   .st-flip-card,.st-car-track,.st-scroll-bar{transition:none;animation:none}
 }
+
+/* ==========================================================
+   FINAL FIX OVERRIDES — pickup color, section divider, team photo, map area
+   ========================================================== */
+.st-oc{
+  padding:6rem 2rem 7.4rem!important;
+  background:
+    radial-gradient(circle at 50% -12%,rgba(164,204,212,.20),transparent 38%),
+    linear-gradient(180deg,var(--surface-page) 0%,#f2ede7 100%)!important;
+  border-top:1px solid var(--bd);
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.st-oc-above-cases{border-top:none!important;border-bottom:0!important}
+.st-oc-above-cases::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:86px;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(164,204,212,0),rgba(164,204,212,.20)),
+    repeating-linear-gradient(90deg,rgba(58,94,144,.10) 0 1px,transparent 1px 18px);
+  border-top:1px solid rgba(58,94,144,.18);
+}
+.st-oc-above-cases::after{
+  content:"";position:absolute;left:50%;bottom:30px;width:min(820px,calc(100% - 4rem));height:1px;
+  transform:translateX(-50%);pointer-events:none;z-index:0;
+  background:linear-gradient(90deg,transparent,rgba(122,31,46,.18),rgba(231,189,123,.55),rgba(122,31,46,.18),transparent);
+}
+.st-oc-inner{position:relative;z-index:1}
+.st-oc-card{box-shadow:0 22px 50px rgba(63,16,22,.06)}
+.st-oc-mid{
+  background:
+    linear-gradient(135deg,rgba(164,204,212,.96) 0%,rgba(164,204,212,.72) 38%,rgba(235,230,224,.98) 100%)!important;
+  border-color:rgba(58,94,144,.28)!important;
+  box-shadow:0 24px 55px rgba(58,94,144,.13)!important;
+}
+.st-oc-mid::before{
+  content:"";position:absolute;inset:18px;border:1px solid rgba(58,94,144,.18);pointer-events:none;
+}
+.st-oc-mid::after{
+  content:"PICKUP";position:absolute;right:-.2rem;bottom:1.1rem;
+  font-family:var(--fb);font-size:clamp(2.8rem,5vw,5.3rem);font-weight:800;letter-spacing:.16em;
+  color:rgba(58,94,144,.075);line-height:1;pointer-events:none;
+}
+.st-oc-mid .st-oc-num-bg{-webkit-text-stroke-color:rgba(58,94,144,.16)!important}
+.st-oc-mid .st-oc-h em{color:var(--navy)!important;font-style:italic}
+.st-oc-mid .st-oc-list li{background:rgba(255,255,255,.36)!important;color:var(--text)!important;border:1px solid rgba(58,94,144,.08)}
+.st-products{
+  padding-top:6.35rem!important;
+  background:linear-gradient(180deg,#f7f2ec 0%,var(--surface-page) 11rem)!important;
+  position:relative;
+}
+.st-products::before{
+  content:"";position:absolute;top:0;left:2rem;right:2rem;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(58,94,144,.28),rgba(231,189,123,.62),rgba(58,94,144,.28),transparent);
+}
+.st-quote-team-img-wrap{
+  position:relative;
+  max-width:540px;width:100%;
+  padding:18px 18px 56px;
+  background:rgba(255,255,255,.46);
+  border:1px solid rgba(122,31,46,.14);
+  box-shadow:0 26px 70px rgba(63,16,22,.13);
+  transform:rotate(.6deg);
+}
+.st-quote-team-img-wrap::before{
+  content:"";position:absolute;inset:34px -18px -18px 34px;z-index:-1;
+  background:linear-gradient(135deg,rgba(122,31,46,.88),rgba(58,94,144,.78));
+  opacity:.16;
+}
+.st-quote-team-img-wrap::after{
+  content:"SINCE 1942";position:absolute;top:30px;left:30px;
+  font-family:var(--fb);font-size:8px;font-weight:800;letter-spacing:.28em;color:#fff;
+  background:rgba(122,31,46,.82);padding:8px 10px;
+}
+.st-quote-team-img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+  border:1px solid rgba(122,31,46,.16);
+  box-shadow:0 16px 34px rgba(44,26,14,.12);
+  filter:saturate(.92) contrast(1.02);
+}
+.st-quote-team-caption{
+  position:absolute;left:18px;right:18px;bottom:18px;
+  display:flex;align-items:center;gap:12px;margin-top:0;
+  font-family:var(--fb);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.26em;color:var(--soft);
+}
+.st-quote-team-rule{display:block;width:28px;height:1.5px;background:var(--gold);flex-shrink:0}
+@media(max-width:899px){
+  .st-quote-team-img-wrap{transform:none;padding:12px 12px 46px}
+  .st-quote-team-img-wrap::before{inset:18px -8px -10px 18px}
+  .st-quote-team-img-wrap::after{top:22px;left:22px;font-size:7.5px}
+  .st-quote-team-caption{font-size:7.5px;letter-spacing:.18em;left:12px;right:12px;bottom:14px}
+}
+
+/* ==========================================================
+   FINAL CLEAN ADJUSTMENTS · Pickup + region divider
+   ========================================================== */
+.st-oc-above-cases{
+  border-bottom:0!important;
+  padding-bottom:5rem!important;
+}
+.st-oc-above-cases::before,
+.st-oc-above-cases::after{
+  display:none!important;
+  content:none!important;
+}
+.st-simple-section-divider{
+  height:1px;
+  max-width:1400px;
+  margin:0 auto;
+  background:linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(63,16,22,.16) 18%,
+    rgba(63,16,22,.16) 82%,
+    transparent 100%
+  );
+}
+.st-oc-mid{
+  background:#f4f0eb!important;
+  border-color:rgba(63,16,22,.14)!important;
+  box-shadow:0 22px 50px rgba(63,16,22,.06)!important;
+}
+.st-oc-mid::before,
+.st-oc-mid::after{
+  display:none!important;
+  content:none!important;
+}
+.st-oc-mid .st-oc-num-bg{
+  -webkit-text-stroke-color:rgba(63,16,22,.055)!important;
+}
+.st-oc-mid .st-oc-h{
+  color:var(--ink)!important;
+}
+.st-oc-mid .st-oc-h em{
+  color:var(--burgundy)!important;
+  font-style:italic;
+}
+.st-oc-mid .st-oc-body{
+  color:var(--soft)!important;
+}
+.st-oc-mid .st-oc-list li{
+  background:rgba(255,255,255,.48)!important;
+  color:var(--text)!important;
+  border:0!important;
+}
+.st-oc-mid .st-oc-list li::before{
+  background:var(--gold)!important;
+}
+.st-products{
+  padding-top:6.5rem!important;
+  background:linear-gradient(180deg,#f1ece6 0%,#ebe6e0 100%)!important;
+  border-top:0!important;
+}
+.st-products::before{
+  display:none!important;
+  content:none!important;
+}
+.st-flip-front{
+  background:#fff!important;
+  border:1px solid rgba(63,16,22,.12)!important;
+  box-shadow:0 18px 42px rgba(63,16,22,.09)!important;
+}
+
+/* ==========================================================
+   FINAL REQUEST FIX - subtle Trustindex-style pattern on order cards section
+   ========================================================== */
+.st-oc.st-oc-above-cases{
+  background:
+    linear-gradient(135deg,rgba(235,230,224,.94),rgba(235,230,224,.86)),
+    var(--st-oc-pattern)!important;
+  background-repeat:repeat!important;
+  background-size:auto,310px auto!important;
+  background-position:center!important;
+  position:relative;
+  overflow:hidden;
+}
+
 </style>
 
 <script>
