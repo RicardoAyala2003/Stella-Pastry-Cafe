@@ -17,7 +17,7 @@
 
   --st-text: #2e1e14;
   --st-text-soft: rgba(46, 30, 20, 0.75);
-  --st-border: rgba(122, 31, 46, 0.18);
+  --st-border: rgba(58, 94, 144, 0.18); /* CHANGED: navy border instead of burgundy */
 
   --st-font-display: "Playfair Display", serif;
   --st-font-body: "Lato", sans-serif;
@@ -42,8 +42,8 @@ body {
    ========================= */
 
 .st-site-header {
-  border-bottom: 1px solid rgba(122, 31, 46, 0.18);
-  box-shadow: 0 16px 45px rgba(63, 16, 22, 0.14);
+  border-bottom: 1px solid rgba(58, 94, 144, 0.28); /* CHANGED: navy border */
+  box-shadow: 0 16px 45px rgba(58, 94, 144, 0.18);  /* CHANGED: navy shadow */
   isolation: isolate;
   transition: box-shadow 0.5s ease, border-color 0.5s ease;
 }
@@ -54,9 +54,9 @@ body {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(122, 31, 46, 0.96), rgba(63, 16, 22, 0.96)),
-    radial-gradient(circle at 20% 0%, rgba(231, 189, 123, 0.16), transparent 42%),
-    radial-gradient(circle at 82% 20%, rgba(164, 204, 212, 0.14), transparent 38%);
+    linear-gradient(90deg, rgba(58, 94, 144, 0.97), rgba(40, 68, 112, 0.97)), /* CHANGED: navy gradient */
+    radial-gradient(circle at 20% 0%, rgba(231, 189, 123, 0.14), transparent 42%),
+    radial-gradient(circle at 82% 20%, rgba(164, 204, 212, 0.18), transparent 38%); /* CHANGED: more sky glow */
   transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -65,7 +65,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  opacity: 0.16;
+  opacity: 0.14;
   background-image: url("/wp-content/uploads/2026/04/Stella-Estampados-02.png");
   background-repeat: repeat;
   background-size: 360px auto;
@@ -75,7 +75,7 @@ body {
   transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Scrolled state — cream */
+/* Scrolled state — cream (unchanged, works well) */
 .st-site-header.is-scrolled::before {
   background:
     linear-gradient(90deg, rgba(235, 230, 224, 0.97), rgba(235, 230, 224, 0.94)),
@@ -144,12 +144,12 @@ body {
   filter:
     brightness(0)
     saturate(100%)
-    invert(12%)
-    sepia(61%)
-    saturate(1475%)
-    hue-rotate(323deg)
-    brightness(88%)
-    contrast(93%);
+    invert(22%)
+    sepia(55%)
+    saturate(800%)
+    hue-rotate(185deg)    /* CHANGED: navy-tinted filter when scrolled */
+    brightness(85%)
+    contrast(95%);
 }
 
 /* =========================
@@ -168,7 +168,7 @@ body {
 }
 
 /* =========================
-   NAV EFFECT - EXACT LOGIC
+   NAV EFFECT
    ========================= */
 
 .st-nav {
@@ -186,7 +186,7 @@ body {
 
 .st-nav .rect {
   fill: none;
-  stroke: rgba(231, 189, 123, 0.75);
+  stroke: rgba(164, 204, 212, 0.75); /* CHANGED: sky stroke */
   stroke-dashoffset: 5;
   stroke-dasharray: 0 0 10 40 10 40;
   transition: stroke 0.55s cubic-bezier(0.4, 0, 0.2, 1), 0.5s;
@@ -202,8 +202,8 @@ body {
   align-items: center;
   padding: 0.5em;
   overflow: hidden;
-  background: rgba(235, 230, 224, 0.08);
-  border: 1px solid rgba(231, 189, 123, 0.18);
+  background: rgba(164, 204, 212, 0.10); /* CHANGED: sky tint */
+  border: 1px solid rgba(164, 204, 212, 0.22); /* CHANGED: sky border */
   backdrop-filter: blur(10px);
   box-shadow: inset 0 0 0 1px rgba(235, 230, 224, 0.05);
   transition: background 0.55s cubic-bezier(0.4, 0, 0.2, 1),
@@ -213,12 +213,12 @@ body {
 
 .st-site-header.is-scrolled .st-nav .container {
   background: rgba(255, 255, 255, 0.34);
-  border-color: rgba(122, 31, 46, 0.16);
-  box-shadow: inset 0 0 0 1px rgba(122, 31, 46, 0.04);
+  border-color: rgba(58, 94, 144, 0.20); /* CHANGED: navy border scrolled */
+  box-shadow: inset 0 0 0 1px rgba(58, 94, 144, 0.06);
 }
 
 .st-site-header.is-scrolled .st-nav .rect {
-  stroke: rgba(122, 31, 46, 0.74);
+  stroke: rgba(58, 94, 144, 0.74); /* CHANGED: navy stroke scrolled */
 }
 
 .st-nav .container:hover .outline .rect {
@@ -247,13 +247,13 @@ body {
 }
 
 .st-nav .btn:hover {
-  background: rgba(231, 189, 123, 0.14);
-  color: var(--st-gold);
+  background: rgba(164, 204, 212, 0.18); /* CHANGED: sky hover tint */
+  color: var(--st-sky);                   /* CHANGED: sky text on hover */
 }
 
 .st-site-header.is-scrolled .st-nav .btn:hover {
-  background: rgba(122, 31, 46, 0.08);
-  color: var(--st-burgundy);
+  background: rgba(58, 94, 144, 0.10); /* CHANGED: navy tint scrolled */
+  color: var(--st-blue);               /* CHANGED: navy text scrolled */
 }
 
 .st-nav .btn:nth-child(1):hover ~ svg .rect {
@@ -299,7 +299,7 @@ body {
   line-height: 1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  box-shadow: 0 15px 34px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 15px 34px rgba(58, 94, 144, 0.18); /* CHANGED: navy shadow */
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               color 0.35s ease,
@@ -311,7 +311,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--st-burgundy);
+  background: var(--st-blue); /* CHANGED: navy fill on hover instead of burgundy */
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
@@ -320,8 +320,8 @@ body {
 .st-nav-order:hover {
   transform: translateY(-2px);
   color: var(--st-cream);
-  border-color: rgba(231, 189, 123, 0.9);
-  box-shadow: 0 18px 40px rgba(122, 31, 46, 0.24);
+  border-color: rgba(164, 204, 212, 0.6); /* CHANGED: sky border on hover */
+  box-shadow: 0 18px 40px rgba(58, 94, 144, 0.28); /* CHANGED: navy shadow */
 }
 
 .st-nav-order:hover::before {
@@ -347,8 +347,8 @@ body {
   justify-content: center;
   overflow: hidden;
   color: var(--st-cream);
-  border: 1px solid rgba(231, 189, 123, 0.42);
-  background: rgba(235, 230, 224, 0.1);
+  border: 1px solid rgba(164, 204, 212, 0.45); /* CHANGED: sky border */
+  background: rgba(164, 204, 212, 0.12);        /* CHANGED: sky bg tint */
   box-shadow: inset 0 0 0 1px rgba(235, 230, 224, 0.04);
   transition: transform 0.28s ease,
               background 0.28s ease,
@@ -361,7 +361,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--st-gold);
+  background: var(--st-sky); /* CHANGED: sky fill on hover */
   transform: translateY(100%);
   transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
@@ -379,8 +379,8 @@ body {
 .st-social-link:focus-visible {
   transform: translateY(-2px);
   color: var(--st-dark);
-  border-color: rgba(231, 189, 123, 0.92);
-  box-shadow: 0 12px 26px rgba(63, 16, 22, 0.16);
+  border-color: rgba(164, 204, 212, 0.92); /* CHANGED: sky border */
+  box-shadow: 0 12px 26px rgba(58, 94, 144, 0.18); /* CHANGED: navy shadow */
 }
 
 .st-social-link:hover::before,
@@ -389,38 +389,42 @@ body {
 }
 
 .st-site-header.is-scrolled .st-social-link {
-  color: var(--st-burgundy);
-  border-color: rgba(122, 31, 46, 0.22);
+  color: var(--st-blue);                        /* CHANGED: navy icon scrolled */
+  border-color: rgba(58, 94, 144, 0.24);        /* CHANGED: navy border scrolled */
   background: rgba(255, 255, 255, 0.35);
+}
+
+.st-site-header.is-scrolled .st-social-link::before {
+  background: var(--st-blue); /* CHANGED: navy fill scrolled */
 }
 
 .st-site-header.is-scrolled .st-social-link:hover,
 .st-site-header.is-scrolled .st-social-link:focus-visible {
-  color: var(--st-dark);
-  border-color: rgba(122, 31, 46, 0.32);
+  color: var(--st-cream);
+  border-color: rgba(58, 94, 144, 0.45);
 }
 
-/* Mobile */
+/* Mobile toggle */
 .st-menu-toggle {
   display: none;
   height: 44px;
   width: 44px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(231, 189, 123, 0.45);
-  background: rgba(235, 230, 224, 0.12);
+  border: 1px solid rgba(164, 204, 212, 0.48); /* CHANGED: sky border */
+  background: rgba(164, 204, 212, 0.14);        /* CHANGED: sky tint */
   color: var(--st-cream);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .st-site-header.is-scrolled .st-menu-toggle {
-  border-color: rgba(122, 31, 46, 0.18);
-  background: rgba(122, 31, 46, 0.06);
-  color: var(--st-burgundy);
+  border-color: rgba(58, 94, 144, 0.22); /* CHANGED: navy scrolled */
+  background: rgba(58, 94, 144, 0.08);
+  color: var(--st-blue);                 /* CHANGED: navy icon scrolled */
 }
 
 .st-menu-toggle:hover {
-  background: var(--st-gold);
+  background: var(--st-sky); /* CHANGED: sky on hover */
   color: var(--st-dark);
 }
 
@@ -430,7 +434,7 @@ body {
   opacity: 0;
   border-top: 1px solid transparent;
   background:
-    linear-gradient(180deg, rgba(63, 16, 22, 0.98), rgba(122, 31, 46, 0.96)),
+    linear-gradient(180deg, rgba(40, 68, 112, 0.98), rgba(58, 94, 144, 0.96)), /* CHANGED: navy gradient */
     url("/wp-content/uploads/2026/04/Stella-Estampados-02.png");
   background-repeat: repeat;
   background-size: auto, 340px auto;
@@ -442,12 +446,12 @@ body {
 .st-mobile-panel.is-open {
   max-height: 560px;
   opacity: 1;
-  border-color: rgba(231, 189, 123, 0.22);
+  border-color: rgba(164, 204, 212, 0.28); /* CHANGED: sky border */
 }
 
 .st-mobile-link {
   padding: 13px 10px;
-  border-bottom: 1px solid rgba(235, 230, 224, 0.1);
+  border-bottom: 1px solid rgba(164, 204, 212, 0.14); /* CHANGED: sky dividers */
   color: var(--st-cream);
   font-size: 13px;
   font-weight: 800;
@@ -457,7 +461,7 @@ body {
 }
 
 .st-mobile-link:hover {
-  color: var(--st-gold);
+  color: var(--st-sky); /* CHANGED: sky on hover */
   padding-left: 16px;
 }
 
@@ -491,7 +495,7 @@ body {
 }
 
 .st-mobile-social-label {
-  color: rgba(235, 230, 224, 0.68);
+  color: rgba(164, 204, 212, 0.75); /* CHANGED: sky label */
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.24em;
@@ -709,7 +713,7 @@ body {
 }
 
 /* =========================
-   SOFT BOTTOM BORDER
+   WAVE — navy top, cream scrolled (unchanged logic)
    ========================= */
 
 .navbar-wave {
@@ -722,6 +726,7 @@ body {
   z-index: 20;
   overflow: hidden;
 }
+
 .st-yelp-text {
   font-family: var(--st-font-body);
   font-size: 9px;
@@ -738,8 +743,9 @@ body {
   background-repeat: repeat-x;
   background-position: top left;
   background-size: 36px 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='16' viewBox='0 0 36 16'%3E%3Cpath d='M0 0H36C36 8.84 27.94 16 18 16S0 8.84 0 0Z' fill='%237a1f2e'/%3E%3C/svg%3E");
-  filter: drop-shadow(0 5px 4px rgba(63, 16, 22, 0.12));
+  /* CHANGED: wave color is now navy #3a5e90 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='16' viewBox='0 0 36 16'%3E%3Cpath d='M0 0H36C36 8.84 27.94 16 18 16S0 8.84 0 0Z' fill='%233a5e90'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 5px 4px rgba(58, 94, 144, 0.14));
   transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
               filter 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -757,7 +763,8 @@ body {
 
   .navbar-wave::before {
     background-size: 44px 20px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='20' viewBox='0 0 44 20'%3E%3Cpath d='M0 0H44C44 11.04 34.15 20 22 20S0 11.04 0 0Z' fill='%237a1f2e'/%3E%3C/svg%3E");
+    /* CHANGED: wave navy #3a5e90 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='20' viewBox='0 0 44 20'%3E%3Cpath d='M0 0H44C44 11.04 34.15 20 22 20S0 11.04 0 0Z' fill='%233a5e90'/%3E%3C/svg%3E");
   }
 
   .st-site-header.is-scrolled .navbar-wave::before {
@@ -766,11 +773,6 @@ body {
 }
 
 
-
-
-/* =========================
-   STELLA FOOTER
-   ========================= */
 /* =========================
    STELLA FOOTER
    ========================= */
@@ -779,11 +781,11 @@ body {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 0%, rgba(231, 189, 123, 0.16), transparent 36%),
-    radial-gradient(circle at 86% 8%, rgba(164, 204, 212, 0.14), transparent 34%),
+    radial-gradient(circle at 18% 0%, rgba(164, 204, 212, 0.18), transparent 36%),  /* CHANGED: sky glow */
+    radial-gradient(circle at 86% 8%, rgba(58, 94, 144, 0.12), transparent 34%),   /* CHANGED: navy glow */
     linear-gradient(180deg, #ebe6e0 0%, #e2d6c6 100%);
   color: var(--st-text);
-  border-top: 1px solid rgba(122, 31, 46, 0.14);
+  border-top: 1px solid rgba(58, 94, 144, 0.16); /* CHANGED: navy top border */
 }
 
 .st-footer-street-shadow {
@@ -793,8 +795,8 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(63, 16, 22, 0.08) 0%,
-      rgba(63, 16, 22, 0.025) 55%,
+      rgba(58, 94, 144, 0.08) 0%,   /* CHANGED: navy tint */
+      rgba(58, 94, 144, 0.025) 55%,
       transparent 100%
     );
 }
@@ -810,12 +812,12 @@ body {
 .st-footer-postcard {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(122, 31, 46, 0.16);
+  border: 1px solid rgba(58, 94, 144, 0.16); /* CHANGED: navy border */
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(235, 230, 224, 0.82));
   backdrop-filter: blur(6px);
   box-shadow:
-    0 26px 70px rgba(63, 16, 22, 0.13),
+    0 26px 70px rgba(58, 94, 144, 0.12),       /* CHANGED: navy shadow */
     inset 0 1px 0 rgba(255, 255, 255, 0.66);
 }
 
@@ -828,9 +830,9 @@ body {
   height: 92px;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(63, 16, 22, 0.01), rgba(63, 16, 22, 0.045)),
-    linear-gradient(90deg, rgba(122, 31, 46, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(122, 31, 46, 0.035) 1px, transparent 1px);
+    linear-gradient(180deg, rgba(58, 94, 144, 0.01), rgba(58, 94, 144, 0.04)), /* CHANGED: navy */
+    linear-gradient(90deg, rgba(58, 94, 144, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(58, 94, 144, 0.03) 1px, transparent 1px);
   background-size: auto, 30px 30px, 30px 30px;
 }
 
@@ -853,12 +855,12 @@ body {
   filter:
     brightness(0)
     saturate(100%)
-    invert(14%)
-    sepia(48%)
-    saturate(1597%)
-    hue-rotate(322deg)
-    brightness(82%)
-    contrast(93%);
+    invert(28%)
+    sepia(55%)
+    saturate(600%)
+    hue-rotate(185deg)   /* CHANGED: navy-tinted accent image */
+    brightness(80%)
+    contrast(92%);
 }
 
 .st-footer-watermark {
@@ -878,12 +880,12 @@ body {
   filter:
     brightness(0)
     saturate(100%)
-    invert(14%)
-    sepia(48%)
-    saturate(1597%)
-    hue-rotate(322deg)
-    brightness(82%)
-    contrast(93%);
+    invert(28%)
+    sepia(55%)
+    saturate(600%)
+    hue-rotate(185deg)   /* CHANGED: navy-tinted watermark */
+    brightness(80%)
+    contrast(92%);
 }
 
 .st-footer-scene {
@@ -901,7 +903,7 @@ body {
   bottom: 42px;
   width: 72px;
   height: 72px;
-  border: 2px solid rgba(122, 31, 46, 0.34);
+  border: 2px solid rgba(58, 94, 144, 0.30); /* CHANGED: navy */
   border-radius: 999px;
 }
 
@@ -912,7 +914,7 @@ body {
   top: 72px;
   width: 2px;
   height: 30px;
-  background: rgba(122, 31, 46, 0.34);
+  background: rgba(58, 94, 144, 0.30); /* CHANGED: navy */
   transform: translateX(-50%);
 }
 
@@ -923,7 +925,7 @@ body {
   top: 102px;
   width: 38px;
   height: 2px;
-  background: rgba(122, 31, 46, 0.34);
+  background: rgba(58, 94, 144, 0.30); /* CHANGED: navy */
   transform: translateX(-50%);
 }
 
@@ -941,7 +943,7 @@ body {
   bottom: 58px;
   width: 20px;
   height: 30px;
-  border: 2px solid rgba(122, 31, 46, 0.28);
+  border: 2px solid rgba(58, 94, 144, 0.24); /* CHANGED: navy */
   border-bottom: 0;
   border-radius: 8px 8px 0 0;
 }
@@ -953,7 +955,7 @@ body {
   bottom: -18px;
   width: 2px;
   height: 18px;
-  background: rgba(122, 31, 46, 0.28);
+  background: rgba(58, 94, 144, 0.24); /* CHANGED: navy */
 }
 
 .st-chair::before {
@@ -986,7 +988,7 @@ body {
   bottom: 54px;
   width: 42px;
   height: 28px;
-  background: rgba(58, 94, 144, 0.22);
+  background: rgba(58, 94, 144, 0.22); /* already navy, kept */
   clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
 }
 
@@ -997,12 +999,12 @@ body {
   bottom: 18px;
   width: 40px;
   height: 40px;
-  background: rgba(122, 31, 46, 0.15);
+  background: rgba(58, 94, 144, 0.15); /* CHANGED: navy foliage */
   border-radius: 50%;
   transform: translateX(-50%);
   box-shadow:
-    -12px 7px 0 -8px rgba(122, 31, 46, 0.13),
-    12px 7px 0 -8px rgba(122, 31, 46, 0.13);
+    -12px 7px 0 -8px rgba(58, 94, 144, 0.13),
+    12px 7px 0 -8px rgba(58, 94, 144, 0.13);
 }
 
 .st-planter-left {
@@ -1047,12 +1049,12 @@ body {
   filter:
     brightness(0)
     saturate(100%)
-    invert(14%)
-    sepia(48%)
-    saturate(1597%)
-    hue-rotate(322deg)
-    brightness(82%)
-    contrast(93%);
+    invert(28%)
+    sepia(55%)
+    saturate(600%)
+    hue-rotate(185deg)   /* CHANGED: navy-tinted logo in footer */
+    brightness(80%)
+    contrast(92%);
 }
 
 .st-footer-tagline {
@@ -1075,14 +1077,14 @@ body {
   justify-content: center;
   min-height: 38px;
   padding: 0.52rem 0.85rem;
-  border: 1px solid rgba(122, 31, 46, 0.18);
+  border: 1px solid rgba(58, 94, 144, 0.22); /* CHANGED: navy border */
   background: rgba(255, 255, 255, 0.36);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--st-burgundy);
+  color: var(--st-blue); /* CHANGED: navy text */
   transition:
     transform 0.28s ease,
     border-color 0.28s ease,
@@ -1091,8 +1093,8 @@ body {
 
 .st-footer-chip:hover {
   transform: translateY(-2px);
-  border-color: rgba(231, 189, 123, 0.55);
-  background: rgba(231, 189, 123, 0.13);
+  border-color: rgba(164, 204, 212, 0.55); /* CHANGED: sky border hover */
+  background: rgba(164, 204, 212, 0.14);   /* CHANGED: sky bg hover */
 }
 
 .st-footer-col-title {
@@ -1101,7 +1103,7 @@ body {
   font-weight: 800;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--st-burgundy);
+  color: var(--st-blue); /* CHANGED: navy titles instead of burgundy */
 }
 
 .st-footer-list {
@@ -1143,13 +1145,13 @@ body {
   bottom: -0.2rem;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, var(--st-burgundy), var(--st-gold));
+  background: linear-gradient(90deg, var(--st-blue), var(--st-sky)); /* CHANGED: navy to sky underline */
   transition: width 0.28s ease;
 }
 
 .st-footer-nav a:hover,
 .st-footer-socials a:hover {
-  color: var(--st-burgundy);
+  color: var(--st-blue); /* CHANGED: navy hover text */
   transform: translateX(3px);
 }
 
@@ -1164,7 +1166,7 @@ body {
   gap: 1rem 1.3rem;
   margin-top: 1.8rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(122, 31, 46, 0.12);
+  border-top: 1px solid rgba(58, 94, 144, 0.14); /* CHANGED: navy divider */
 }
 
 .st-footer-bottom {
@@ -1290,24 +1292,7 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================
-   CHATBOT ORDER
-   ========================= */
-
-   /* =========================
    STELLA FLOATING ORDER CTA
    ========================= */
 
@@ -1339,10 +1324,10 @@ body {
   padding: 13px 14px;
   border-radius: 20px;
   background:
-    linear-gradient(135deg, rgba(63, 16, 22, 0.96), rgba(35, 22, 18, 0.96));
-  border: 1px solid rgba(231, 189, 123, 0.22);
+    linear-gradient(135deg, rgba(40, 68, 112, 0.97), rgba(30, 52, 90, 0.97)); /* CHANGED: navy gradient */
+  border: 1px solid rgba(164, 204, 212, 0.24); /* CHANGED: sky border */
   box-shadow:
-    0 22px 55px rgba(63, 16, 22, 0.34),
+    0 22px 55px rgba(58, 94, 144, 0.32),         /* CHANGED: navy shadow */
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   color: #ebe6e0;
   text-decoration: none;
@@ -1358,7 +1343,7 @@ body {
   background-image: url("/wp-content/uploads/2026/04/Stella-Estampados-02.png");
   background-repeat: repeat;
   background-size: 260px auto;
-  opacity: 0.08;
+  opacity: 0.07;
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
@@ -1390,12 +1375,12 @@ body {
   filter:
     brightness(0)
     saturate(100%)
-    invert(12%)
-    sepia(61%)
-    saturate(1475%)
-    hue-rotate(323deg)
-    brightness(88%)
-    contrast(93%);
+    invert(28%)
+    sepia(55%)
+    saturate(600%)
+    hue-rotate(185deg)   /* CHANGED: navy-tinted logo in floating card */
+    brightness(80%)
+    contrast(92%);
 }
 
 .st-floating-order__copy {
@@ -1421,7 +1406,7 @@ body {
   font-size: 12px;
   line-height: 1.2;
   font-weight: 700;
-  color: rgba(235, 230, 224, 0.78);
+  color: rgba(164, 204, 212, 0.85); /* CHANGED: sky tint on subtext */
   white-space: nowrap;
 }
 
@@ -1433,13 +1418,13 @@ body {
   min-height: 42px;
   padding: 0 22px;
   border-radius: 999px;
-  background: #7a1f2e;
-  color: #fff;
+  background: var(--st-gold);          /* CHANGED: gold button instead of burgundy */
+  color: var(--st-dark);               /* CHANGED: dark text on gold */
   font-family: var(--st-font-body, "Lato", sans-serif);
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.02em;
-  box-shadow: 0 10px 24px rgba(122, 31, 46, 0.3);
+  box-shadow: 0 10px 24px rgba(231, 189, 123, 0.28); /* CHANGED: gold shadow */
   transition:
     background 0.25s ease,
     color 0.25s ease,
@@ -1447,13 +1432,13 @@ body {
 }
 
 .st-floating-order__card:hover .st-floating-order__btn {
-  background: #e7bd7b;
-  color: #3f1016;
+  background: var(--st-sky);   /* CHANGED: sky on hover */
+  color: var(--st-dark);
   transform: translateX(2px);
 }
 
 .st-floating-order__card:hover {
-  border-color: rgba(231, 189, 123, 0.42);
+  border-color: rgba(164, 204, 212, 0.50); /* CHANGED: sky border on hover */
 }
 
 /* Mobile */
